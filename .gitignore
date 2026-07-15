@@ -21,7 +21,7 @@
 .ddev/db_snapshots/
 .ddev/.global_commands/
 .ddev/.homeadditions/
-wp-config.php
+wp-config-local.php
 
 # Local development
 *.code-workspace
@@ -42,8 +42,6 @@ wp-config.php
 # Composer-managed plugins
 /web/wp-content/plugins/*
 !/web/wp-content/plugins/.gitkeep
-!/web/wp-content/plugins/sd-cf7-salesforce/
-!/web/wp-content/plugins/sd-cf7-salesforce/**
 
 # Keep custom themes trackable
 !/web/wp-content/themes/
