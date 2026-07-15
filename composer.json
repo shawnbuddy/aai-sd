@@ -26,7 +26,6 @@
     "wpackagist-plugin/wpcf7-redirect": "^3.2"
   },
   "extra": {
-    "wordpress-install-dir": "web/wp",
     "installer-paths": {
       "web/wp-content/plugins/{$name}/": [
         "type:wordpress-plugin"

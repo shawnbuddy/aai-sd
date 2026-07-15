@@ -1,5 +1,7 @@
 # Put overrides to your pantheon.upstream.yml file here.
 # For more information, see: https://pantheon.io/docs/pantheon-yml/
 api_version: 1
+# Serve from web/ subdirectory instead of repo root.
+web_docroot: true
 # Run `composer install` on Pantheon after each push (Integrated Composer).
 build_step: true
