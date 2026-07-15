@@ -1,0 +1,8 @@
+// Use: @include margin-bottom(PX_VALUE);
+@mixin margin-bottom($px) {
+  margin-bottom: $px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

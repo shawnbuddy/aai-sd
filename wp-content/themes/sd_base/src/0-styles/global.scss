@@ -1,0 +1,513 @@
+/* ==== Global CSS ==== */
+/* These will be compiled into a global.css file.
+ * Note that util is split into a separate import so
+ * shared mixins and variables stay centralized.
+ */
+
+// @import url('https://use.typekit.net/nae3ztp.css');
+@use 'sass:color';
+@use '@util' as *;
+@forward './stories/typography/typography';
+@use './fonts';
+@import url('https://use.fontawesome.com/releases/v6.4.2/css/all.css');
+
+.esonly {
+  display: none;
+}
+
+html {
+  font-size: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+
+  /* Layout custom properties */
+  --content-max-width: 100rem;
+  --content-gutter: 1rem;
+
+  @include tablet-up {
+    --content-gutter: 2rem;
+  }
+
+  @include desktop-up {
+    --content-gutter: 4rem;
+  }
+}
+
+body {
+  font-size: 1rem;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:not([href]) {
+    color: unset;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+/* Labels */
+label {
+  @include standard-label;
+}
+
+details {
+  @include standard-details;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"] {
+  @include standard-input;
+
+  & + .input-help-text {
+    @include font-style('body-sm');
+    margin-top: 6px;
+  }
+}
+
+input[type="date"] {
+  background: calc(100% - 16px) 50% url('../images/calendar-days-solid.svg') no-repeat;
+  background-size: 16px;
+  position: relative;
+
+  &::-webkit-datetime-edit {
+    text-transform: uppercase;
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    color: transparent;
+    background: transparent;
+  }
+}
+
+input[type="search"] {
+  @include standard-input-search;
+}
+
+.checkbox-group {
+  @include custom-checkbox;
+}
+
+.radio-group {
+  @include custom-radio;
+}
+
+/* Selects */
+select {
+  @include standard-select;
+}
+
+.input-group--error {
+  color: $color-error;
+
+  input {
+    border-color: $color-error;
+  }
+
+  p {
+    color: $color-error;
+  }
+}
+
+.input-group--success {
+  color: $color-success;
+
+  input {
+    border-color: $color-success;
+  }
+
+  p {
+    color: $color-success;
+  }
+}
+
+/* Editor parity */
+.editor-styles-wrapper {
+  .wp-block-button .wp-block-button__link {
+    @include button-primary;
+  }
+
+  .wp-block-buttons {
+    > .wp-block-button:nth-child(1) .wp-block-button__link {
+      @include button-primary;
+    }
+
+    > .wp-block-button:nth-child(n+2) .wp-block-button__link {
+      @include button-secondary;
+    }
+  }
+}
+
+$spaces: (
+  "1x": $space-1x,
+  "2x": $space-2x,
+  "3x": $space-3x,
+  "4x": $space-4x,
+  "5x": $space-5x,
+  "6x": $space-6x,
+  "7x": $space-7x,
+  "8x": $space-8x,
+  "9x": $space-9x,
+  "10x": $space-10x
+);
+
+@each $spacer, $size in $spaces {
+  .spacer-bottom-#{$spacer} {
+    margin-bottom: $size;
+  }
+
+  .spacer-top-#{$spacer} {
+    margin-top: $size;
+  }
+
+  .spacer-right-#{$spacer} {
+    margin-right: $size;
+  }
+}
+
+/* Reboot */
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+p,
+ol,
+ul,
+blockquote,
+figure {
+  margin: 0;
+  // margin-bottom: 20px; // JBB - 2025-10-29 - not good for sidenav
+  padding: 0;
+  font-family: $paragraph-text;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: $gray-darkest;
+}
+
+p,
+ul,
+ol {
+  margin-bottom: 16px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  & + h2,
+  & + h3,
+  & + h4,
+  & + h5,
+  & + h6 {
+    margin-top: 32px;
+  }
+}
+
+.type {
+  font-family: $body-text;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 120%;
+  color: $gray-dark;
+}
+
+h5 {
+  color: $blue;
+}
+
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.21em;
+}
+
+ol:not([class]),
+ul:not([class]) {
+	margin: 0;
+  padding: 0;
+}
+
+ul:not([class]):not([role]) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+
+  th {
+    text-align: left;
+    color: $white;
+    background-color: $blue;
+    border: 1px solid $blue;
+  }
+
+  th,
+  td {
+    padding: $space-1x $space-2x;
+  }
+
+  td {
+    border: 1px solid $gray;
+  }
+
+  // every other row
+  tr:nth-child(even) {
+    background-color: $gray-divider;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+figcaption {
+  margin-top: $space-2x;
+}
+
+// button {
+//   padding: 0;
+//   background-color: transparent;
+//   border: 0;
+//   box-shadow: none;
+// }
+
+// Causing me layout issues when logged in.
+nav {
+  &.contextual-region {
+    position: unset;
+  }
+}
+
+hr {
+  margin: $space-4x 0;
+}
+
+// Headings
+.h1-huge {
+  @include font-style(display-h1-lg-desk);
+  color: $blue;
+
+  @include tablet-down {
+    @include font-style(display-h1-lg-mob);
+  }
+}
+
+.display-h1-desk {
+  @include font-style(display-h1-desk);
+
+  @include tablet-down {
+    @include font-style(display-h1-mob);
+  }
+}
+
+.h1,
+h1 {
+  @include font-style(h1-desk);
+
+  @include tablet-down {
+    @include font-style(h1-mob);
+  }
+}
+
+.h1-mob {
+  @include font-style(h1-mob);
+}
+
+.h2,
+h2 {
+  @include font-style(h2-desk);
+
+  @include tablet-down {
+    @include font-style(h2-mob);
+  }
+}
+
+.h2-mob {
+  @include font-style(h2-mob);
+}
+
+.h3,
+h3 {
+  @include font-style(h3-desk);
+
+  @include tablet-down {
+    @include font-style(h3-mob);
+  }
+}
+
+.h3-mob {
+  @include font-style(h3-mob);
+}
+
+.h4,
+h4 {
+  @include font-style(h4-desk);
+}
+
+.h5,
+h5 {
+  @include font-style(h5-desk);
+  color: $blue;
+
+  @include tablet-down {
+    @include font-style(h5-mob);
+  }
+}
+
+.h6,
+h6 {
+  @include font-style(h6-desk);
+
+  @include tablet-down {
+    @include font-style(h6-mob);
+  }
+}
+
+// Body
+.body-xl-lg {
+  @include font-style(body-xl-lg-desk);
+
+  @include tablet-down {
+    @include font-style(body-xl-lg-mob);
+  }
+}
+
+.body-lg {
+  @include font-style(body-lg-desk);
+
+  @include tablet-down {
+    @include font-style(body-lg-mob);
+  }
+}
+
+.body-md {
+  @include font-style(body-md-desk);
+}
+
+.body-xl-lg,
+.body-lg,
+.body-md {
+  font-family: $body-text;
+}
+
+.body {
+  @include font-style(body);
+  max-width: 800px;
+  background-color: pink !important;
+
+  table {
+    margin: 16px 0;
+  }
+
+  ol,
+  ul {
+    padding-left: 24px;
+  }
+
+  li {
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.body-last {
+  margin-bottom: 64px;
+}
+
+.body-sm {
+  @include font-style(body-sm);
+}
+
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+
+  &:focus {
+    clip: none;
+    clip-path: none;
+    position: relative;
+    width: auto;
+    height: auto;
+    overflow: visible;
+  }
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+
+  &:focus {
+    clip-path: none;
+    color: $blue;
+  }
+}
+
+.education-archive__list {
+  margin: 32px 0;
+
+  .education-archive__item {
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+@use '@util' as *;
+
+.breadcrumbs {
+  display: flex;
+  margin: 0;
+  margin-bottom: 16px;
+  padding: 0;
+  font-family: $body-text;
+
+  @include mobile-down {
+    display: none;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: '|';
+      display: block;
+      width: 1px;
+      height: 20px;
+      margin-top: -3px;
+      margin-left: 16px;
+      margin-right: 16px;
+      font-size: 18px;
+      color: $blue;
+    }
+
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+
+    i {
+      margin-right: 9px;
+      color: $blue;
+
+      @include tablet-up {
+        display: none;
+      }
+    }
+
+    @include tablet-down {
+      display: none;
+
+      &:last-child {
+        display: flex;
+      }
+    }
+  }
+
+  &:has(> :nth-child(-n+2):last-child a:empty) {
+    li {
+      &:first-child {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  a,
+  span {
+    @include font-style(body);
+    font-size: 14px;
+    color: $gray-darkest;
+    text-decoration: none;
+    font-family: $body-text;
+  }
+
+  a {
+    @include hf-effect {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Inverted breadcrumbs
+.breadcrumbs-wrap {
+  &:has(.breadcrumbs--inverted) {
+    > h2 {
+      color: $white;
+    }
+  }
+}
+
+.breadcrumbs--inverted {
+  li {
+    &::after {
+      color: $white;
+    }
+  }
+
+  i,
+  a,
+  span {
+    color: $white;
+  }
+}

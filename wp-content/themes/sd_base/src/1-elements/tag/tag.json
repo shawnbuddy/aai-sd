@@ -1,0 +1,28 @@
+{
+  "default": {
+    "variant": "default",
+    "title": "Default Tag"
+  },
+  "dark": {
+    "variant": "dark",
+    "title": "Default Tag"
+  },
+  "clickable": {
+    "variant": "default",
+    "title": "Default Tag",
+    "link": "#"
+  },
+  "emphasis": {
+    "variant": "emphasis",
+    "title": "Emphasis Tag"
+  },
+  "icon": {
+    "variant": "icon",
+    "title": "Icon Tag"
+  },
+  "icon_clickable": {
+    "variant": "icon",
+    "title": "Icon Tag",
+    "link": "#"
+  }
+}

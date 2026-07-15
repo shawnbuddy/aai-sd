@@ -1,0 +1,7 @@
+{% set class_list = ['image'] %}
+{% for v in variant %}
+  {% set class_list = class_list|merge(['image--' ~ v]) %}
+{% endfor %}
+<div class="{{ class_list|join(' ') }}">
+  {{ image }}
+</div>

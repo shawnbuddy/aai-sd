@@ -1,0 +1,27 @@
+@use '@util' as *;
+/* For Storybook Display */
+.typography__heading {
+  margin-bottom: $space-2x;
+  font-size: 20px;
+}
+
+.typography__table {
+  @include sb-table;
+
+  font-family: $body-text;
+  margin-bottom: $space-6x;
+}
+
+.sbdocs-content {
+  max-width: 100% !important;
+}
+
+.sb-table {
+  th {
+    width: 220px;
+
+    &:last-child {
+      width: auto;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<section class="teaser-block">
+  {% if image %}
+    <div class="teaser-block__image">
+      <img src="{{ image.url }}" alt="{{ image.alt|default(title) }}">
+    </div>
+  {% endif %}
+
+  <div class="teaser-block__content">
+    {% if title %}
+      <h2>{{ title }}</h2>
+    {% endif %}
+
+    {% if description %}
+      <p>{{ description }}</p>
+    {% endif %}
+
+    {% if cta %}
+      <p><a href="{{ cta.url }}" target="{{ cta.target|default('_self') }}">{{ cta.title }}</a></p>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,89 @@
+/* ========== Font Weights ========== */
+@use "sass:list";
+@use "sass:map";
+@use "../variables" as *;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+$font-weight-black: 900;
+
+/* ========== Font Sizes ========== */
+// Display
+$display-h1-lg: 184px;
+$display-h1-lg-mob: 60px;
+
+$display-h1: 120px;
+$display-h1-mob: 48px;
+
+// Headings
+$h1-desk: 72px;
+$h1-mob: 52px;
+
+$h2-desk: 56px;
+$h2-mob: 48px;
+
+$h3-desk: 48px;
+$h3-mob: 40px;
+
+$h4-desk: 40px;
+$h4-mob: 32px;
+
+$h5-desk: 32px;
+$h5-mob: 28px;
+
+$h6-desk: 20px;
+$h6-mob: 16px;
+
+// Body
+$body-xl-lg-desk: 40px;
+$body-xl-lg-mob: 32px;
+$body-lg-desk: 32px;
+$body-lg-mob: 20px;
+$body-md-desk: 22px;
+$body: 24px;
+$body-sm: 18px;
+
+$font-styles: (
+  display-h1-lg-desk: ($display-h1-lg, 1, $font-weight-medium),
+  display-h1-lg-mob: ($display-h1-lg-mob, 1, $font-weight-medium),
+
+  display-h1-desk: ($display-h1, 1, $font-weight-medium),
+  display-h1-mob: ($display-h1-mob, 1, $font-weight-medium),
+
+  h1-desk: ($h1-desk, 1.2, $font-weight-medium),
+  h1-mob: ($h1-mob, 1.2, $font-weight-medium),
+
+  h2-desk: ($h2-desk, 1.2, $font-weight-medium),
+  h2-mob: ($h2-mob, 1.2, $font-weight-medium),
+  h3-desk: ($h3-desk, 1.2, $font-weight-medium),
+  h3-mob: ($h3-mob, 1.2, $font-weight-medium),
+
+  h4-desk: ($h4-desk, 1.2, $font-weight-medium),
+  h4-mob: ($h4-mob, 1.2, $font-weight-medium),
+
+  h5-desk: ($h5-desk, 1.2, $font-weight-medium),
+  h5-mob: ($h5-mob, 1.2, $font-weight-medium),
+
+  h6-desk: ($h6-desk, 1.2, $font-weight-medium),
+  h6-mob: ($h6-mob, 1.2, $font-weight-medium),
+
+  body-xl-lg-desk: ($body-xl-lg-desk, 1.2, $font-weight-regular),
+  body-xl-lg-mob: ($body-xl-lg-mob, 1.2, $font-weight-regular),
+  body-lg-desk: ($body-lg-desk, 1.2, $font-weight-regular),
+  body-lg-mob: ($body-lg-mob, 1.2, $font-weight-regular),
+  body-md-desk: ($body-md-desk, 1.2, $font-weight-regular),
+  body: ($body, 1.4, $font-weight-regular),
+  body-sm: ($body-sm, 1.2, $font-weight-regular)
+);
+
+@mixin font-style($style-name) {
+  $style: map.get($font-styles, $style-name);
+  font-family: $display-text;
+  font-size: list.nth($style, 1);
+  line-height: list.nth($style, 2);
+  font-weight: list.nth($style, 3);
+}

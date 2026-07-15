@@ -1,0 +1,180 @@
+{
+  "Grayscale": [
+    {
+      "name": "color-white",
+      "hex": "#ffffff",
+      "text_color": "black"
+    },
+    {
+      "name": "color-gray-light",
+      "hex": "#f3f3f3",
+      "text_color": "black"
+    },
+    {
+      "name": "color-gray-background",
+      "hex": "#F7F7F7",
+      "text_color": "black"
+    },
+    {
+      "name": "color-silver",
+      "hex": "#cccccc",
+      "text_color": "black"
+    },
+    {
+      "name": "color-gray",
+      "hex": "#bdbdbd",
+      "text_color": "black"
+    },
+    {
+      "name": "color-dark-steel",
+      "hex": "#454b4e",
+      "text_color": "white"
+    },
+    {
+      "name": "color-gunmetal",
+      "hex": "#5e696f",
+      "text_color": "white"
+    },
+    {
+      "name": "color-slate-gray",
+      "hex": "#666666",
+      "text_color": "white"
+    },
+    {
+      "name": "color-charcoal",
+      "hex": "#444444",
+      "text_color": "white"
+    },
+    {
+      "name": "color-dark-gray",
+      "hex": "#3f3f3f",
+      "text_color": "white"
+    },
+    {
+      "name": "color-graphite",
+      "hex": "#333333",
+      "text_color": "white"
+    },
+    {
+      "name": "color-black",
+      "hex": "#000000",
+      "text_color": "white"
+    }
+  ],
+  "Blue": [
+    {
+      "name": "color-blue-lightest",
+      "hex": "#adddff",
+      "text_color": "black"
+    },
+    {
+      "name": "color-blue-light",
+      "hex": "#95d9ff",
+      "text_color": "black"
+    },
+    {
+      "name": "color-blue-light-background",
+      "hex": "#D7EDF9",
+      "text_color": "black"
+    },
+    {
+      "name": "color-blue-light-alt",
+      "hex": "#75CDFF",
+      "text_color": "black"
+    },
+    {
+      "name": "color-blue-medium",
+      "hex": "#0075B6",
+      "text_color": "white"
+    },
+    {
+      "name": "color-blue-medium-alt",
+      "hex": "#0179bd",
+      "text_color": "white"
+    },
+    {
+      "name": "color-blue-denim",
+      "hex": "#235e9b",
+      "text_color": "white"
+    },
+    {
+      "name": "color-blue-navy",
+      "hex": "#173c73",
+      "text_color": "white"
+    },
+    {
+      "name": "color-blue-muted",
+      "hex": "#385b9f",
+      "text_color": "white"
+    },
+    {
+      "name": "color-blue-dark",
+      "hex": "#132F5B",
+      "text_color": "white"
+    }
+  ],
+  "Green": [
+    {
+      "name": "color-green-light",
+      "hex": "#8dc63f",
+      "text_color": "black"
+    },
+    {
+      "name": "color-green-medium",
+      "hex": "#4fa606",
+      "text_color": "black"
+    },
+    {
+      "name": "color-green-medium-alt",
+      "hex": "#4fa607",
+      "text_color": "black"
+    },
+    {
+      "name": "color-green-dark",
+      "hex": "#336a06",
+      "text_color": "white"
+    },
+    {
+      "name": "color-green-darkest",
+      "hex": "#265300",
+      "text_color": "white"
+    }
+  ],
+  "Notifications": [
+    {
+      "name": "color-default",
+      "hex": "#248DEF",
+      "text_color": "white"
+    },
+    {
+      "name": "color-success",
+      "hex": "#76A41F",
+      "text_color": "black"
+    },
+    {
+      "name": "color-error",
+      "hex": "#E00000",
+      "text_color": "white"
+    },
+    {
+      "name": "color-warning",
+      "hex": "#FC8440",
+      "text_color": "black"
+    },
+    {
+      "name": "color-disabled",
+      "hex": "#CCCCCC",
+      "text_color": "black"
+    },
+    {
+      "name": "color-action",
+      "hex": "#0066CC",
+      "text_color": "white"
+    },
+    {
+      "name": "color-alert",
+      "hex": "#FFE500",
+      "text_color": "black"
+    }
+  ]
+}

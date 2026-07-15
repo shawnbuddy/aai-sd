@@ -1,0 +1,104 @@
+@use '@util' as *;
+
+main {
+  flex: 1;
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+}
+
+.full-bleed {
+  width: 100%;
+  max-width: none;
+}
+
+.guttered {
+  padding-inline: var(--content-gutter);
+}
+
+.site-main {
+  padding:0;
+
+  .page-content,
+  .front-page-content {
+    .entry-header {
+      margin-bottom: 2rem;
+      text-align: center;
+
+      .entry-title {
+        font-size: 2.5rem;
+        margin: 0 0 1rem 0;
+        color: #333;
+      }
+
+      .entry-subtitle {
+        font-size: 1.2rem;
+        color: #666;
+        margin: 0;
+      }
+    }
+
+    .entry-content {
+      // JBB - 2025-11-04 - MJH-1464 - default padding for default gutenberg blocks
+      .wp-block-heading {
+        margin-bottom: 12px;
+      }
+
+      .wp-block-details:last-of-type {
+        margin-bottom: 1.5rem;
+      }
+
+      .wp-block-button {
+        width: 100%;
+
+        @include mobile-up {
+          width: fit-content; // JBB - MJH-1483
+        }
+      }
+
+      /* Gutenberg Button block → Storybook button variants */
+      .wp-block-button .wp-block-button__link {
+        @include button-primary;
+      }
+
+      .wp-block-buttons {
+        > .wp-block-button:nth-child(1) .wp-block-button__link {
+          @include button-primary;
+        }
+
+        > .wp-block-button:nth-child(n+2) .wp-block-button__link {
+          @include button-secondary;
+        }
+      }
+
+      /* Editor parity: styles applied at top-level below. */
+      ul {
+        // margin: 1rem 0; // JBB - 2025-10-29 - not good for lists or sidenav
+        // padding-left: 2rem; // JBB - 2025-10-29 - not good for lists or sidenav
+
+        li {
+          // margin-bottom: 0.5rem; // JBB - 2025-10-29 - not good for lists or sidenav
+        }
+      }
+
+      p {
+        margin-bottom: 32px;
+      }
+
+      .main-content {
+        .content-wrapper {
+          p {
+            margin-bottom: 1.5rem;
+          }
+          ul {
+            margin-bottom: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}

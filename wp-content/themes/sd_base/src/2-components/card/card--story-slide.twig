@@ -1,0 +1,23 @@
+{% if 'localhost' not in host %}
+  {{ function('load_assets', 'card') }}
+{% endif %}
+
+<div class="story-slide">
+  {{ image }}
+  <h2>{{ title }}</h2>
+  <div class="subtitle">{{ subtitle }}</div>
+  <div class="story-slide__story-links">
+    {% include 'src/1-elements/button/button.twig' with {
+      link: survivor_url,
+      text: 'Ask ' ~ first_name ~ ' a Question',
+      variant: ['primary'],
+      icon: 'microphone'
+    } %}
+    {% include 'src/1-elements/button/button.twig' with {
+      link: story_url,
+      text: 'Meet ' ~ first_name,
+      variant: ['secondary'],
+      icon: 'story'
+    } %}
+  </div>
+</div>

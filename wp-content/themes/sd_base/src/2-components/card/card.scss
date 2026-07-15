@@ -1,0 +1,271 @@
+@use '@util' as *;
+
+.story-slide {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+  position: relative;
+
+  &__story-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+
+  @include hf-effect {
+    .story-slide__story-links {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  img,
+  video {
+    width: 100%;
+    flex: 1;
+    object-fit: cover;
+    object-position: bottom;
+    max-height: 700px;
+
+    @include desktop-down {
+      max-width: calc(100% - 40px);
+      max-height: 450px;
+    }
+
+    @media screen and (min-width: 1500px) {
+      object-fit: contain;
+    }
+
+    @include tablet-down {
+      object-fit: contain;
+      max-height: 500px;
+    }
+  }
+
+  h2 {
+    margin-top: auto;
+    margin-bottom: 4px;
+    font-size: 48px;
+    color: $gray-divider;
+  }
+
+  .subtitle {
+    font-family: $body-text;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 120%;
+    color: $gray;
+  }
+}
+
+.card--teaser {
+  padding: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid $gray-border;
+  border-radius: 16px;
+
+  @include desktop-up {
+    display: flex;
+    gap: 40px;
+    padding: 32px;
+  }
+
+  .card__image {
+    @include desktop-up {
+      @include make-col(4);
+    }
+
+    @include desktop-down {
+      img,
+      video {
+        margin: 0 auto 16px;
+      }
+    }
+
+    video,
+    img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  .card__content {
+    @include desktop-up {
+      @include make-col(5);
+
+      * {
+        max-width: 464px;
+      }
+    }
+  }
+
+  .card__links {
+    @include desktop-up {
+      @include make-col(3);
+    }
+  }
+
+  .card__subhead {
+    padding-bottom: 16px;
+    border-bottom: 1px solid $gray-border;
+  }
+
+  .card__description {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 24px;
+    color: $gray-darkest;
+
+    .read-more {
+      color: $gray-darkest;
+      text-decoration: underline;
+
+      @include hf-effect {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .card__question {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 4px;
+    font-family: $body-text;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+    color: $gray-dark;
+
+    & + p {
+      font-family: $body-text;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 120%;
+      color: $gray-darkest;
+
+      @include desktop-down {
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  .button-wrap {
+    button,
+    a {
+      display: flex;
+      width: fit-content;
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.button--secondary {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+.card--simple {
+  .card__image {
+    position: relative;
+
+    img {
+      display: block;
+      width: 100%;
+      margin-bottom: 24px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .remote-video-button {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 0;
+      background-color: transparent;
+      border: 0;
+
+      @include hf-effect {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  a {
+    text-underline-offset: 2px;
+    text-decoration-thickness: 2px;
+    color: $gray-darkest;
+  }
+
+  .card__description {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-size: 24px;
+    color: $gray-darkest;
+  }
+
+  .card__subhead {
+    padding-bottom: 16px;
+    border-bottom: 1px solid $gray-border;
+  }
+}
+
+.card-list {
+  margin-bottom: 48px;
+
+  @include desktop-up {
+    margin-bottom: 80px;
+  }
+
+  .card {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include desktop-up {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.card-grid {
+  margin-bottom: 56px;
+
+  @include desktop-up {
+    margin-bottom: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px 82px;
+
+    > * {
+      @include make-col(4);
+
+      max-width: calc(33.3333% - 55px);
+    }
+  }
+}
+

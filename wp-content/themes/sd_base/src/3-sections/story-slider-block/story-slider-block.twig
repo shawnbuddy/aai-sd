@@ -1,0 +1,31 @@
+{% if 'localhost' not in host %}
+  {{ function('load_assets', 'story-slider-block') }}
+  {{ function('load_assets', 'splide') }}
+{% endif %}
+
+<div class="story-slider-block">
+  <div class="container guttered">
+    {% if label %}
+      <h2 class="story-slider-block__label">{{ label }}</h2>
+    {% endif %}
+    <section id="carousel-{{ galleryid }}" class="splide"  aria-label="Image Carousel {{ galleryid }}">
+      <div class="splide__track">
+        <ul class="splide__list">
+          {% for slide in slides %}
+            <li class="splide__slide">
+              {% include 'src/2-components/card/card--story-slide.twig' with {
+                image: slide.image,
+                title: slide.title,
+                first_name: slide.first_name,
+                subtitle: slide.subtitle,
+                story_url: slide.story_url,
+                survivor_url: slide.survivor_url
+              } %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="custom-pagination"></div>
+    </section>
+  </div>
+</div>

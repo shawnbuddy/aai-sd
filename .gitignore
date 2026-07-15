@@ -1,57 +1,73 @@
-# WordPress #
-############
-wp-config-local.php
-wp-cli.local.yml
-wp-content/uploads
-wp-content/blogs.dir/
-wp-content/upgrade/
-wp-content/backup-db/
-wp-content/updraft/
-wp-content/backupwordpress-*/
-wp-content/managewp/backups/
-wp-content/advanced-cache.php
-wp-content/wp-cache-config.php
-sitemap.xml
-sitemap.xml.gz
+# macOS
+.DS_Store
 
-# @TODO writable paths
-wp-content/cache/
-wp-content/backups/
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+*.swo
 
-# Avoid accidental modification of pantheon.upstream.yml in sites
-# created from this upstream
-pantheon.upstream.yml
+# Environment files
+.env
+.env.*
+!.env.example
 
-# Packages #
-############
-*.7z
-*.dmg
-*.gz
-*.bz2
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-*.tgz
-!wp-includes/**/*.gz
+# Composer dependencies
+/vendor/
 
-# Logs and databases #
-######################
+# DDEV generated/import artifacts
+.ddev/.importdb*
+.ddev/.downloads/
+.ddev/db_snapshots/
+.ddev/.global_commands/
+.ddev/.homeadditions/
+wp-config.php
+
+# Local development
+*.code-workspace
+.vscrof
+
+# WordPress core (installed to web/wp/ by Composer)
+/web/wp/
+
+# WordPress content that should not be committed
+/web/wp-content/uploads/
+/web/wp-content/upgrade/
+/web/wp-content/cache/
+/web/wp-content/backup-db/
+/web/wp-content/backups/
+/web/wp-content/ai1wm-backups/
+/web/wp-content/debug.log
+
+# Composer-managed plugins
+/web/wp-content/plugins/*
+!/web/wp-content/plugins/.gitkeep
+!/web/wp-content/plugins/sd-cf7-salesforce/
+!/web/wp-content/plugins/sd-cf7-salesforce/**
+
+# Keep custom themes trackable
+!/web/wp-content/themes/
+/web/wp-content/themes/*
+!/web/wp-content/themes/sd_base/
+
+# Ignore generated theme dependencies/build artifacts
+/web/wp-content/themes/sd_base/node_modules/
+/web/wp-content/themes/sd_base/vendor/
+/web/wp-content/themes/sd_base/dist/
+/web/wp-content/themes/sd_base/.DS_Store
+
+# WordPress generated files
+/web/wp-content/object-cache.php
+/web/wp-content/advanced-cache.php
+
+# Logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Database dumps
 *.sql
-
-# OS generated files #
-######################
-.DS_Store*
-ehthumbs.db
-Thumbs.db
-._*
-
-# Vim generated files #
-######################
-*.un~
-
-# SASS #
-##########
-.sass-cache
+*.sql.gz
+/database/*
+!/database/wordpress-db.sql.gz

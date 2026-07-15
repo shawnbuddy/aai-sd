@@ -1,0 +1,19 @@
+{% set host = host|default('') %}
+
+{% if 'localhost' not in host %}
+  {{ function('load_assets', 'hero') }}
+{% endif %}
+
+{%
+  set class_list = [
+    'hero',
+    variant ? 'hero--' ~ variant : ''
+  ]
+%}
+
+<div class="{{ class_list|join(' ') }}">
+  <div class="container guttered">
+    <h1 class="h1-huge">{{ h1_text }}</h1>
+    <p>{{ p_text }}</p>
+  </div>
+</div>

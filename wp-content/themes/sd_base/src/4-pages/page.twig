@@ -1,0 +1,10 @@
+<div class="basic-page">
+  <article class="page-content">
+    {% include 'src/3-sections/hero/hero-landing.twig' with {
+      title: title
+    } %}
+    <div class="container guttered">
+      <div class="body">{{ post.content|raw }}</div>
+    </div>
+  </article>
+</div>

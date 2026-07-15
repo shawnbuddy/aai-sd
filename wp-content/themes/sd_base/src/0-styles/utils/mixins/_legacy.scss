@@ -1,0 +1,378 @@
+@use "sass:string";
+@use "../variables" as *;
+
+
+// Very basic, utilitarian mixins
+@mixin left {
+  text-align: left;
+}
+
+@mixin right {
+  text-align: right;
+}
+
+@mixin centered {
+  text-align: center;
+}
+
+@mixin middle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin absolute {
+  position: absolute;
+}
+
+@mixin relative {
+  position: relative;
+}
+
+@mixin fixedpos {
+  position: fixed;
+}
+
+@mixin off {
+  display: none;
+}
+
+@mixin block {
+  display: block;
+}
+
+@mixin inline-block {
+  display: inline-block;
+}
+
+@mixin north {
+  top: 0;
+}
+
+@mixin south {
+  bottom: 0;
+}
+
+@mixin east {
+  right: 0;
+}
+
+@mixin west {
+  left: 0;
+}
+
+@mixin fullwidth {
+  width: 100%;
+}
+
+@mixin fullheight {
+  height: 100%;
+}
+
+@mixin uppercase {
+  text-transform: uppercase;
+}
+
+@mixin underline {
+  text-decoration: underline;
+}
+
+@mixin noline {
+  text-decoration: none;
+}
+
+@mixin nopad {
+  padding: 0;
+}
+
+@mixin nomgn {
+  margin: 0;
+}
+
+@mixin nolist {
+  list-style: none;
+}
+
+@mixin contain {
+  overflow: auto;
+}
+
+@mixin bold {
+  font-weight: bold;
+}
+
+@mixin nobold {
+  font-weight: normal;
+}
+
+@mixin noborder {
+  border: none 0;
+}
+
+@mixin nooutline {
+  outline: none;
+}
+
+@mixin font0 {
+  font-size: 0;
+}
+
+@mixin reset {
+  appearance: none;
+}
+
+@mixin round($x) {
+  border-radius: $x;
+}
+
+@mixin circle {
+  border-radius: 100%;
+}
+
+@mixin mt($x) {
+  margin-top: $x;
+}
+
+@mixin mb($x) {
+  margin-bottom: $x;
+}
+
+@mixin ml($x) {
+  margin-left: $x;
+}
+
+@mixin mr($x) {
+  margin-right: $x;
+}
+
+@mixin pt($x) {
+  padding-top: $x;
+}
+
+@mixin pb($x) {
+  padding-bottom: $x;
+}
+
+@mixin pl($x) {
+  padding-left: $x;
+}
+
+@mixin pr($x) {
+  padding-right: $x;
+}
+
+@mixin col($x) {
+  // +middle
+  max-width: $col * $x;
+}
+
+@mixin sans {
+  font-family: "Open Sans";
+}
+
+
+// Specific styles
+@mixin bkgd-img-defaults {
+  background-size: cover;
+  // height: 600px
+}
+
+@mixin btn-defaults {
+  padding: 18px 25px;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+@mixin blue-bar-defaults {
+  color: $white;
+  font-weight: 600;
+  background: #173c73 !important;
+  padding: 10px 20px !important;
+  position: relative;
+  border: none;
+
+  .wp-block-heading {
+    color: $white;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+}
+
+@mixin cta {
+  display: inline-block;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: $blue-dark;
+  text-decoration: none;
+  line-height: 1.2;
+
+  &::after {
+    display: inline-block;
+    font-family: 'Font Awesome 5 Free';
+    content: "\f0da";
+    margin-left: 8px;
+    color: $blue;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+
+    &::after {
+      color: $blue-dark;
+    }
+  }
+}
+
+@mixin card {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  img {
+    @include shrink(0);
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .card__content {
+    background-color: $gray-lighter;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    h3 {
+      @extend %h4;
+      display: block;
+      color: $blue-dark;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: $gray-darkest;
+      font-size: 18px;
+      padding-top: 0;
+      padding-bottom: 24px;
+      margin-bottom: auto;
+    }
+
+    a {
+      @include cta;
+      display: inline-block;
+      padding-top: 16px;
+      border-top: 1px dashed #132F5B66;
+    }
+  }
+}
+
+@mixin svg($x, $y) {
+  background-image: url('data:image/svg+xml,%3Csvg version="1.1" fill="%23#{string.slice(string.unquote("#{$y}"), 2)}" xmlns="http://www.w3.org/2000/svg" #{$x}/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+}
+
+
+// Flexbox
+@mixin flexbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($x) {
+  -webkit-box-flex: $x;
+  -webkit-flex: $x;
+  -ms-flex: $x;
+  flex: $x;
+}
+
+@mixin justify($x) {
+  -webkit-justify-content: $x;
+  -ms-justify-content: $x;
+  justify-content: $x;
+}
+
+@mixin alignitems($x) {
+  -webkit-align-items: $x;
+  -ms-flex-item-align: $x;
+  align-items: $x;
+}
+
+@mixin aligncontent($x) {
+  -webkit-align-content: $x;
+  -ms-flex-content-align: $x;
+  align-content: $x;
+}
+
+@mixin flow($x) {
+  -webkit-flex-flow: $x;
+  -ms-flex-flow: $x;
+  flex-flow: $x;
+}
+
+@mixin basis($x) {
+  -webkit-flex-basis: $x;
+  -ms-flex-basis: $x;
+  flex-basis: $x;
+}
+
+@mixin grow($x) {
+  -webkit-flex-grow: $x;
+  -ms-flex-grow: $x;
+  flex-grow: $x;
+}
+
+@mixin shrink($x) {
+  -webkit-flex-shrink: $x;
+  -ms-flex-shrink: $x;
+  flex-shrink: $x;
+}
+
+@mixin order($x) {
+  -webkit-box-ordinal-group: $x;
+  -ms-flex-order: $x;
+  -webkit-order: $x;
+  order: $x;
+}
+
+@mixin flux($w, $x, $y, $z) {
+  @include flexbox;
+  @include flow($w);
+  @include alignitems($x);
+  @include aligncontent($y);
+  @include justify($z);
+}
+
+@mixin bleed {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+@mixin gb { // This is the remnant of that stop-gap WP Bakery solution
+  @include relative;
+  @include middle;
+  max-width: 1360px;
+
+  &::after {
+    clear: both;
+  }
+
+  &::after,
+  &::before {
+    content: " ";
+    display: table;
+  }
+}
+
+@mixin cover {
+  @include absolute;
+  @include north;
+  @include south;
+  @include east;
+  @include west;
+  @include fullwidth;
+  @include fullheight;
+}

@@ -1,0 +1,22 @@
+<div class="basic-page">
+  <article class="page-content">
+    {% include 'src/3-sections/hero/hero-landing.twig' with {
+      title: title
+    } %}
+    <div class="container guttered">
+      <div class="body">
+        {% if posts %}
+          <ul>
+            {% for item in posts %}
+              <li>
+                <a href="{{ item.link }}">{{ item.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>No posts found yet.</p>
+        {% endif %}
+      </div>
+    </div>
+  </article>
+</div>

@@ -1,0 +1,37 @@
+<header class="header">
+  <div class="header__top">
+    <div class="site-navigation container guttered">
+      {% if function('has_custom_logo') %}
+        <div class="site-brand">{{ function('get_custom_logo') }}</div>
+      {% else %}
+        <a href="{{ site.url }}" rel="home" class="site-brand">
+          <span class="h3">{{ site.name }}</span>
+        </a>
+      {% endif %}
+      <button class="toggle-menu" id="js-toggle-menu">
+        <div class="hamburger">
+          <i></i>
+        </div>
+      </button>
+    </div>
+    <div class="site-drawer" id="js-site-drawer">
+      <div class="container guttered">
+        <nav class="site-drawer__nav" aria-label="Primary menu">
+          {% set main_menu = function('wp_nav_menu', {
+            'theme_location': 'main-menu',
+            'container': false,
+            'echo': false,
+            'menu_class': 'menu'
+          }) %}
+          {% if main_menu %}
+            {{ main_menu|raw }}
+          {% else %}
+            <ul class="menu">
+              {{ function('wp_list_pages', {'title_li': '', 'echo': 0})|raw }}
+            </ul>
+          {% endif %}
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

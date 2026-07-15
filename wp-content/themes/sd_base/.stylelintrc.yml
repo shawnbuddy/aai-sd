@@ -1,0 +1,23 @@
+extends:
+  - stylelint-config-standard
+plugins:
+  - stylelint-selector-pseudo-class-lvhfa
+ignoreFiles:
+  - './dist/**'
+rules:
+  at-rule-no-unknown: null
+  color-function-notation: null
+  declaration-empty-line-before: never
+  declaration-block-no-redundant-longhand-properties: null
+  hue-degree-notation: number
+  import-notation: string
+  no-descending-specificity: null
+  no-duplicate-selectors: true
+  plugin/selector-pseudo-class-lvhfa: true
+  property-no-vendor-prefix: null
+  selector-class-pattern: null
+  value-keyword-case:
+    - lower
+    - camelCaseSvgKeywords: true
+      ignoreProperties:
+        - /^--font/

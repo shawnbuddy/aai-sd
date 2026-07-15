@@ -1,0 +1,31 @@
+{% set host = host|default('') %}
+
+{% if 'localhost' not in host %}
+{{ function('load_assets', 'social-share') }}
+{% endif %}
+
+{% set class_list = [
+  'social-share',
+  invert_colors ? 'social-share--inverted' : '',
+  include_border ? 'social-share--bordered' : '',
+] %}
+
+<div class="{{ class_list|join(' ')|trim }}">
+  <span class="social-share__text">Share</span>
+  {# Facebook #}
+  <a href="#" class="social-share__icon" aria-label="social-share on Facebook">
+    <i class="fa-brands fa-facebook"></i>
+  </a>
+  {# X #}
+  <a href="#" class="social-share__icon" aria-label="social-share on X">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+  {# LinkedIn #}
+  <a href="#" class="social-share__icon" aria-label="social-share on LinkedIn">
+    <i class="fa-brands fa-linkedin"></i>
+  </a>
+  {# Email #}
+  <a href="#" class="social-share__icon" aria-label="social-share via Email">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+</div>

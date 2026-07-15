@@ -1,0 +1,14 @@
+{%
+  set class_list = [
+    'tag',
+    variant ? 'tag--' ~ variant : '',
+  ]
+%}
+
+<span class="{{ class_list|join(' ')|trim }}">
+  {% if link is defined and link %}
+    <a href="{{ link }}">{{ title }}</a>
+  {% else %}
+    {{ title }}
+  {% endif %}
+</span>

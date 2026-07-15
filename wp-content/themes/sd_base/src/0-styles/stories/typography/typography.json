@@ -1,0 +1,163 @@
+{
+  "h1": [
+    {
+      "tag": "h1 Huge",
+      "class": "h1-huge",
+      "name": "h1 Giant",
+      "font_size": "184px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    },
+    {
+      "tag": "h1",
+      "class": "h1-huge",
+      "name": "h1 Huge (mobile)",
+      "font_size": "60px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    },
+    {
+      "tag": "h1 Giant",
+      "class": "h1-giant",
+      "name": "h1 Giant",
+      "font_size": "120px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    },
+    {
+      "tag": "h1",
+      "class": "h1-giant",
+      "name": "h1 Giant (mobile)",
+      "font_size": "48px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    },
+    {
+      "tag": "h1",
+      "name": "h1",
+      "font_size": "72px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    },
+    {
+      "tag": "h1",
+      "name": "h1 (mobile)",
+      "font_size": "52px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    }
+  ],
+  "h2": [
+    {
+      "tag": "h2",
+      "name": "h2",
+      "font_size": "56px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    },
+    {
+      "tag": "h2",
+      "name": "h2 (mobile)",
+      "font_size": "48px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    }
+  ],
+  "h3": [
+    {
+      "tag": "h3",
+      "name": "h3",
+      "font_size": "48px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    },
+    {
+      "tag": "h3",
+      "name": "h3 (mobile)",
+      "font_size": "40px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    }
+  ],
+  "h4": [
+    {
+      "tag": "h4",
+      "name": "h4",
+      "font_size": "40px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    },
+    {
+      "tag": "h4",
+      "name": "h4 (mobile)",
+      "font_size": "32px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    }
+  ],
+  "h5": [
+    {
+      "tag": "h5",
+      "name": "h5",
+      "font_size": "32px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    },
+    {
+      "tag": "h5",
+      "name": "h5 (mobile)",
+      "font_size": "28px",
+      "font_weight": "500",
+      "content": "Sample Text"
+    }
+  ],
+  "body": [
+    {
+      "tag": "p",
+      "name": "Body XLarge",
+      "class": "body-xl-lg",
+      "font_size": "40px",
+      "font_weight": "400",
+      "content": "Who would you like to talk to?"
+    },
+    {
+      "tag": "p",
+      "name": "Body XLarge (mobile)",
+      "class": "body-xl-lg",
+      "font_size": "32px",
+      "font_weight": "400",
+      "content": "Who would you like to talk to?"
+    },
+    {
+      "tag": "p",
+      "name": "Body Large",
+      "class": "body-lg",
+      "font_size": "32px",
+      "font_weight": "400",
+      "content": "A Childhood in Hiding"
+    },
+    {
+      "tag": "p",
+      "name": "Body Large (mobile)",
+      "class": "body-lg",
+      "font_size": "20px",
+      "font_weight": "400",
+      "content": "A Childhood in Hiding"
+    },
+    {
+      "tag": "p",
+      "name": "Body Medium",
+      "class": "body-md",
+      "font_size": "22px",
+      "font_weight": "400",
+      "content": "Ask questions that prompt real-time responses from pre-recorded video interviews with Holocaust and other genocide Survivors."
+    },
+    {
+      "tag": "p",
+      "name": "Paragraph",
+      "font_size": "24px",
+      "font_weight": "400",
+      "content": "<strong>Strong Text</strong>, <em>emphasized text</em>, sed do eiusmod tempor <a href='#'>a link to something</a> et dolore magna aliqua. Ut enim ad minim veniam<sup>Superscript</sup>, Lorem ipsum dolor sit amet<sub>Subscript</sub> elit, sed do eiusmod tempor <u>Underlined text</u> et dolore magna aliqua. <s>Striked through text</s> Ut enim ad minim veniam, quis nostrud"
+    }
+  ]
+}

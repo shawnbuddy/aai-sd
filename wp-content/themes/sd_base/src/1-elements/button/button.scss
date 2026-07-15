@@ -1,0 +1,73 @@
+@use '@util' as *;
+
+/*- See: src/scss/mixins/_buttons.scss -*/
+
+a,
+button,
+.button {
+
+  &.button--primary {
+    @include button-primary;
+  }
+
+  &.button--primary-inverted {
+    @include button-primary-inverted;
+  }
+
+  &.button--secondary {
+    @include button-secondary;
+  }
+
+  &.button--secondary-inverted {
+    @include button-secondary-inverted;
+  }
+
+  &.button--blue-light {
+    @include button-blue-light;
+  }
+
+  &.button--blue {
+    @include button-blue;
+  }
+
+  &.button--blue-inverted {
+    @include button-blue-inverted;
+  }
+
+  &.button--green {
+    @include button-green;
+  }
+
+  &.button--green-inverted {
+    @include button-green-inverted;
+  }
+
+  &.button--link {
+    @include button-link;
+  }
+
+  &.button--link-inverted {
+    @include button-link-inverted;
+  }
+
+  &.button--link-simple {
+    @include button-link-simple;
+  }
+
+  &.button--small {
+    @include button-small;
+  }
+
+  &.button--icon-before {
+  @include button-icon-before;
+  }
+
+  &.button--icon-after {
+    @include button-icon-after;
+  }
+
+  // Current way buttons with icons are implemented
+  &.button--icon-bookmark {
+    @include button-icon('\f02e');
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "card_story_slide": {
+    "image": "<img src='https://placehold.co/464x646'>",
+    "title": "Marion Deichmann",
+    "first_name": "Marion",
+    "subtitle": "Hidden Child  •  France",
+    "story_url": "#",
+    "survivor_url": "#"
+  },
+  "card_teaser": {
+    "image": "<img src='https://placehold.co/430x430'>",
+    "title": "Marion Deichmann",
+    "first_name": "Marion",
+    "pronoun": "her",
+    "type": "Hidden Child",
+    "location": "France",
+    "description": "A German Jewish survivor, escaped Nazi-occupied Europe after losing her mother in the Vel d'Hiv roundup and Holocaust, later immigrating to the United States in 1947 before eventually returning to France.",
+    "did_you_know_text": "At age 9, she was hidden by the French Resistance"
+  },
+  "card_simple": {
+    "image": "<img src='https://placehold.co/430x242'>",
+    "title": "Marion Deichmann",
+    "first_name": "Marion",
+    "pronoun": "her",
+    "type": "Hidden Child",
+    "location": "France",
+    "description": "A German Jewish survivor, escaped Nazi-occupied Europe after losing her mother in the Vel d'Hiv roundup and Holocaust, later immigrating to the United States in 1947 before eventually returning to France.",
+    "did_you_know_text": "At age 9, she was hidden by the French Resistance"
+  }
+}

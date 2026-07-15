@@ -1,0 +1,256 @@
+@use '@util' as *;
+
+.h1-huge {
+  @include font-style(display-h1-lg-desk);
+  color: $blue;
+  font-size: clamp(4rem, 14vw, 14rem);
+  text-transform: uppercase
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  padding-top: 145px;
+  padding-bottom: 48px;
+  text-align: center;
+
+  @include tablet-up {
+    padding-top: 170px;
+    padding-bottom: 58px;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  h1 {
+    margin: 0;
+    margin-bottom: 16px;
+
+    @include tablet-up {
+      margin-bottom: 32px;
+    }
+  }
+
+  p {
+    max-width: 710px;
+    margin: 0 auto;
+    font-family: $body-text;
+    font-size: 20px;
+
+    @include tablet-up {
+      font-size: 22px;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-image: url('/wp-content/themes/sd_base/dist/images/homepage-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+.hero-landing {
+  position: relative;
+  padding-top: 120px;
+  padding-bottom: 16px;
+  overflow: visible;
+
+  @include tablet-up {
+    padding-top: 178px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 550px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 100%);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 550px;
+    background-repeat: no-repeat;
+    background-image: url('/wp-content/themes/sd_base/dist/images/homepage-bg.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+   h1 {
+    color: $gray-darkest;
+   }
+
+  .container {
+    position: relative;
+    z-index: 1;
+
+    @include breakpoint-up(1200px) {
+      display: flex;
+      gap: 50px;
+    }
+  }
+
+  &__copy {
+    max-width: 720px;
+
+    p {
+      font-family: $paragraph-text;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 120%;
+      color: $gray-dark;
+
+      &.type {
+        font-family: $body-text;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 120%;
+        color: $gray-dark;
+      }
+    }
+  }
+
+  &__actions {
+    padding-top: 24px;
+  }
+
+  &__survivors {
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+    font-family: $body-text;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+    color: $gray-dark;
+
+    @include breakpoint-up(1200px) {
+      margin-left: auto;
+      align-self: flex-end;
+      margin-top: 0;
+      margin-bottom: -30px;
+    }
+
+    .hero-landing__survivors-row {
+      display: flex;
+
+      a {
+        flex: none;
+      }
+    }
+
+    span {
+      display: block;
+      margin-right: 12px;
+    }
+
+    img {
+      width: 48px;
+      height: 48px;
+    }
+
+    a {
+      position: relative;
+      margin-left: -12px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      @include hf-effect {
+        text-decoration: none;
+
+        .tooltip {
+          display: block;
+        }
+      }
+    }
+
+    .tooltip {
+      position: absolute;
+      font-size: 24px;
+      font-family: $display-text;
+      padding: 8px 16px;
+      color: $gray-darkest;
+      background: $white;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -48px;
+      border: 1px solid $gray-border;
+      border-radius: 4px;
+      display: none;
+      white-space: nowrap;
+
+      &::before {
+        content: '';
+        position: absolute;
+        border-top: 8px solid $white;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        border-top: 9px solid $gray-border;
+        border-left: 9px solid transparent;
+        border-right: 9px solid transparent;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+.survivor-page {
+  .hero-landing {
+    .container {
+      @media screen and (min-width: 992px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+
+        .hero-landing__copy {
+          max-width: 100%;
+          width: 100%;
+        }
+
+        .hero-landing__actions,
+        .hero-landing__survivors {
+          width: 50%;
+        }
+
+        .hero-landing__survivors {
+          margin-bottom: 0;
+
+          span {
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+}

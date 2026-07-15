@@ -1,0 +1,17 @@
+<section class="hero-block"{% if background_image %} style="background-image: url('{{ background_image.url }}');"{% endif %}>
+  <div class="container guttered">
+    {% if eyebrow %}
+      <p class="hero-block__eyebrow">{{ eyebrow }}</p>
+    {% endif %}
+
+    {% if headline %}
+      <h2 class="hero-block__headline">{{ headline }}</h2>
+    {% endif %}
+
+    {% if primary_cta %}
+      <p class="hero-block__cta">
+        <a href="{{ primary_cta.url }}" target="{{ primary_cta.target|default('_self') }}">{{ primary_cta.title }}</a>
+      </p>
+    {% endif %}
+  </div>
+</section>

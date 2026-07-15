@@ -1,0 +1,72 @@
+@use '@util' as *;
+
+// Video overlay styles
+.video-player-overlay {
+  position: fixed;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 40%);
+}
+
+.video-dismiss {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(2px);
+}
+
+.video-wrap {
+  position: relative;
+  top: 50%;
+  width: 96%;
+  aspect-ratio: 16 / 9;
+  transform: translate(0, -50%);
+  margin: auto;
+  padding: 32px 12px 12px;
+  border-radius: 8px;
+  background-color: $white;
+  z-index: 10;
+
+  @include tablet-up {
+    max-width: 1000px;
+    padding: 32px 24px 24px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+}
+
+.close-video {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: $gray-darkest;
+  background-color: transparent;
+  border: 1px solid $gray-darkest;
+
+  &:focus {
+    outline: 0;
+  }
+
+  @include hf-effect {
+    color: $white;
+    background-color: $gray-darkest;
+  }
+}

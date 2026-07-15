@@ -1,0 +1,91 @@
+/* ========== Breakpoints for Mixins ========== */
+@use "sass:map";
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 783px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px
+);
+
+/* ======= Media Queries ======= */
+
+/* Mobile */
+@mixin mobile-down {
+    @media (max-width: #{map.get($grid-breakpoints, 'sm') - 1}) {
+      @content;
+    }
+}
+
+@mixin mobile-up {
+    @media (min-width: #{map.get($grid-breakpoints, 'sm')}) {
+      @content;
+    }
+}
+
+/* Tablet */
+@mixin tablet-up {
+    @media (min-width: #{map.get($grid-breakpoints, 'md')}) {
+      @content;
+    }
+}
+
+@mixin tablet-down {
+    @media (max-width: #{map.get($grid-breakpoints, 'md') - 1}) {
+      @content;
+    }
+}
+
+/* Desktop */
+@mixin desktop-up {
+    @media (min-width: #{map.get($grid-breakpoints, 'lg')}) {
+      @content;
+    }
+}
+
+@mixin desktop-down {
+    @media (max-width: #{map.get($grid-breakpoints, 'lg') - 1}) {
+      @content;
+    }
+}
+
+/* Desktop XL */
+@mixin desktop-xl-up {
+    @media (min-width: #{map.get($grid-breakpoints, 'xl')}) {
+      @content;
+    }
+}
+
+@mixin desktop-xl-down {
+    @media (max-width: #{map.get($grid-breakpoints, 'xl') - 1}) {
+      @content;
+    }
+}
+
+/* Desktop XXL */
+@mixin desktop-xxl-up {
+    @media (min-width: #{map.get($grid-breakpoints, 'xxl')}) {
+      @content;
+    }
+}
+
+@mixin desktop-xxl-down {
+    @media (max-width: #{map.get($grid-breakpoints, 'xxl') - 1}) {
+      @content;
+    }
+}
+
+/* Custom media queries */
+@mixin breakpoint-up($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($width) {
+  @media screen and (max-width: ($width - 1)) {
+    @content;
+  }
+}

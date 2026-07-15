@@ -1,0 +1,25 @@
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  &.image--three-two {
+    aspect-ratio: 3 / 2;
+  }
+
+  &.image--four-three {
+    aspect-ratio: 4 / 3;
+  }
+
+  &.image--sixteen-nine {
+    aspect-ratio: 16 / 9;
+  }
+
+  &.image--one-one {
+    aspect-ratio: 1 / 1;
+  }
+
+  &.image--two-three {
+    aspect-ratio: 2 / 3;
+  }
+}

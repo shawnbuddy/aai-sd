@@ -1,0 +1,22 @@
+{
+  "standard": {
+    "image": "<img src='https://placehold.co/700x300' alt='Standard Image' />",
+    "variant": "standard"
+  },
+  "three_two": {
+    "image": "<img src='https://placehold.co/1020x680' alt='3:2 Image' />",
+    "variant": "three-two"
+  },
+  "one_one": {
+    "image": "<img src='https://placehold.co/680x680' alt='1:1 Image' />",
+    "variant": "one-one"
+  },
+  "two_three": {
+    "image": "<img src='https://placehold.co/450x680' alt='2:3 Image' />",
+    "variant": "two-three"
+  },
+  "sixteen_nine": {
+    "image": "<img src='https://placehold.co/1020x575' alt='16:9 Image' />",
+    "variant": "sixteen-nine"
+  }
+}

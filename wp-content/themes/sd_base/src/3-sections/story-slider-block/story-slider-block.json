@@ -1,0 +1,36 @@
+{
+  "label": "Story Slider Block",
+  "galleryid": "story-slider-block",
+  "slides": [
+    {
+      "image": "<img src='https://placehold.co/464x646'>",
+      "title": "Marion Deichmann",
+      "subtitle": "Hidden Child  •  France",
+      "url": "#"
+    },
+    {
+      "image": "<img src='https://placehold.co/464x646'>",
+      "title": "Kizito D. Kalima",
+      "subtitle": "Need Updated Text",
+      "url": "#"
+    },
+    {
+      "image": "<img src='https://placehold.co/464x646'>",
+      "title": "Rodi Glass",
+      "subtitle": "Need Updated Text",
+      "url": "#"
+    },
+    {
+      "image": "<img src='https://placehold.co/464x646'>",
+      "title": "Rodi Glass",
+      "subtitle": "Need Updated Text",
+      "url": "#"
+    },
+    {
+      "image": "<img src='https://placehold.co/464x646'>",
+      "title": "Rodi Glass",
+      "subtitle": "Need Updated Text",
+      "url": "#"
+    }
+  ]
+}

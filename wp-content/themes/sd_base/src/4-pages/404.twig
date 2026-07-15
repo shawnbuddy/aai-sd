@@ -1,0 +1,19 @@
+<div class="basic-page">
+  <article class="page-content">
+    {% include 'src/3-sections/hero/hero-landing.twig' with {
+      title: 'Page Not Found'
+    } %}
+    <div class="container guttered">
+      <div class="body">
+        <p>Sorry, we could not find the page you are looking for.</p>
+        <p>Try searching, checking the URL, or heading back to the homepage.</p>
+        <ul>
+          <li><a href="{{ function('home_url') }}">Return home</a></li>
+          <li><a href="{{ function('get_permalink', function('get_option', 'page_for_posts')) }}">View latest posts</a></li>
+          <li><a href="{{ function('home_url', '/search/') }}">Search the site</a></li>
+        </ul>
+      </div>
+      <div class="spacer-bottom-4x"></div>
+    </div>
+  </article>
+</div>

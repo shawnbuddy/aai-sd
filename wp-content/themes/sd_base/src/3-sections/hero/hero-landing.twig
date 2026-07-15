@@ -1,0 +1,65 @@
+{% set host = host|default('') %}
+
+{% if 'localhost' not in host %}
+  {{ function('load_assets', 'hero') }}
+  {{ function('load_assets', 'video-modal') }}
+{% endif %}
+
+<header class="hero-landing">
+  <div class="container guttered">
+    {% if breadcrumbs or title or type or location or copy %}
+      <div class="hero-landing__copy">
+        {% if breadcrumbs %}
+          {% include 'src/1-elements/breadcrumbs/breadcrumb.html.twig' with {
+            breadcrumb: breadcrumbs
+          } %}
+        {% endif %}
+        {% if title %}
+          <h1>{{ title|replace({' – Survivor Stories': ''}) }}</h1>
+        {% endif %}
+        {% if type or location %}
+          <p class="type">{{ type }} • {{ location }}</p>
+        {% endif %}
+        {% if copy %}
+          <p>{{ copy }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if intro_video and intro_video.url %}
+      <div class="hero-landing__actions">
+        {% include 'src/1-elements/button/button.twig' with {
+          text: 'Watch Video Intro',
+          variant: ['secondary'],
+          icon: 'video',
+          video_url: intro_video.url,
+          text: 'Watch Video Intro',
+        } %}
+      </div>
+    {% endif %}
+
+    {% if other_survivors %}
+      <div class="hero-landing__survivors">
+        <span>Talk to Another Survivor</span>
+        <div class="hero-landing__survivors-row">
+          {% for s in other_survivors %}
+            <a class="hero-landing__survivors-link" href="{{ function('get_permalink', s.ID) }}" title="{{ s.post_title }}">
+              {% set slug = function('get_post_field', 'post_name', s.ID) %}
+              <img
+                class="hero-landing__survivors-image"
+                src="/wp-content/themes/sd_base/dist/images/{{slug}}-headshot.png"
+                alt="{{ s.post_title }}"
+              />
+              <div class="tooltip">{{ s.post_title }}</div>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+
+
+</header>
+
+

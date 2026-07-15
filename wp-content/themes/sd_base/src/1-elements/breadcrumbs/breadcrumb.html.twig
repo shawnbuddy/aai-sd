@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set class_list = [
+    'breadcrumbs',
+    variant ? 'breadcrumbs--' ~ variant : '',
+  ]
+%}
+
+{% set host = host|default('') %}
+
+{% if 'localhost' not in host %}
+{{ function('load_assets', 'breadcrumbs') }}
+{% endif %}
+
+{% if breadcrumb %}
+  <nav role="navigation" aria-labelledby="system-breadcrumb" class="breadcrumbs-wrap">
+    <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+    <ol class="{{ class_list|join(' ') }}">
+    {% for item in breadcrumb %}
+      <li>
+        {% if item.url %}
+          <a href="{{ item.url }}">{{ item.text }}</a>
+        {% else %}
+          {{ item.text }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ol>
+  </nav>
+{% endif %}

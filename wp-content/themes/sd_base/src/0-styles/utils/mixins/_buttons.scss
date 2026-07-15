@@ -1,0 +1,351 @@
+/* ======= Buttons ======= */
+@use "../variables" as *;
+@use "./breakpoints" as *;
+@use "./patterns" as *;
+@use "./typography" as *;
+
+$border-width: 2px;
+$border-hover-width: 4px;
+$padding-vertical: 12px;
+$padding-horizontal: 16px;
+
+/* Base button styles */
+@mixin button-base {
+  font-family: $body-text;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: left;
+  text-wrap: auto;
+  box-shadow: none;
+  cursor: pointer;
+  padding: $padding-vertical $padding-horizontal;
+  flex-grow: 0;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 100px;
+
+  &.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: $color-disabled;
+    border-color: $color-disabled;
+  }
+
+  @include mobile-up {
+    width: fit-content; // JBB - MJH-1483
+  }
+
+  span {
+    display: block;
+  }
+
+  svg {
+    fill: $near-black;
+  }
+}
+
+/* Primary button styles */
+@mixin button-primary {
+  @include button-base;
+  color: $near-black;
+  background: rgba(36, 182, 209, 0.80);
+  backdrop-filter: blur(4px);
+
+  // Primary: Hover
+  @include hf-effect {
+    background: $blue;
+  }
+}
+
+@mixin button-primary-inverted {
+  @include button-base;
+  color: $blue-dark;
+  background-color: $blue-light;
+  border: 1px solid $white;
+  padding: ($padding-vertical - 1px) ($padding-horizontal - 1px);
+
+  // Primary: Hover
+  @include hf-effect {
+    border: 2px solid $white;
+    padding: ($padding-vertical - 2px) ($padding-horizontal - 2px);
+  }
+
+  // Primary: Clicked
+  &:active {
+    background-color: $white;
+  }
+}
+
+/* Secondary button styles */
+@mixin button-secondary {
+  @include button-base;
+  color: $near-black;
+  background-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(4px);
+
+  svg {
+    height: 25px;
+  }
+
+  // Secondary: Hover
+  @include hf-effect {
+    background-color: #24b6d1cc;
+  }
+}
+
+@mixin button-secondary-inverted {
+  @include button-base;
+  font-weight: 700;
+  background-color: transparent;
+  border: 1px solid $white;
+  color: $white;
+  padding: ($padding-vertical - 1px) ($padding-horizontal - 1px);
+
+  // Secondary-inverted: Hover
+  @include hf-effect {
+    border: 2px solid $white;
+    padding: ($padding-vertical - 2px) ($padding-horizontal - 2px);
+  }
+
+  // Secondary-inverted: Clicked
+  &:active {
+    color: $blue-dark;
+    background-color: $white;
+    border-color: $white;
+  }
+}
+
+/* Blue button styles */
+@mixin button-blue-light {
+  @include button-base;
+  color: $white;
+  background-color: #0075B6;
+
+  // Blue: Hover
+  @include hf-effect {
+    color: $blue-dark;
+    background-color: $white;
+    border: 2px solid $blue-dark;
+    padding: ($padding-vertical - 2px) ($padding-horizontal - 2px);
+  }
+
+  // Blue: Clicked
+  &:active {
+    background-color: $blue-light;
+    border: 1px solid $blue-dark;
+    padding: ($padding-vertical - 1px) ($padding-horizontal - 1px);
+  }
+}
+
+@mixin button-blue {
+  @include button-base;
+  color: $white;
+  background-color: $blue-dark;
+
+  // Blue: Hover
+  @include hf-effect {
+    color: $blue-dark;
+    background-color: $white;
+    border: 2px solid $blue-dark;
+    padding: ($padding-vertical - 2px) ($padding-horizontal - 2px);
+  }
+
+  // Blue: Clicked
+  &:active {
+    background-color: $blue-light;
+    border: 1px solid $blue-dark;
+    padding: ($padding-vertical - 1px) ($padding-horizontal - 1px);
+  }
+}
+
+@mixin button-blue-inverted {
+  @include button-base;
+  color: $white;
+  background-color: $blue-dark;
+  border: 1px solid $white;
+  padding: ($padding-vertical - 1px) ($padding-horizontal - 1px);
+
+  // Blue-inverted: Hover
+  @include hf-effect {
+    border: 2px solid $white;
+    padding: ($padding-vertical - 2px) ($padding-horizontal - 2px);
+  }
+
+  // Blue-inverted: Clicked
+  &:active {
+    color: $blue-dark;
+    background-color: $white;
+    border-color: $white;
+  }
+}
+
+/* Green button styles */
+@mixin button-green {
+  @include button-base;
+  color: $white;
+  background-color: $green-medium;
+  border: 1px solid $green-darkest;
+  padding: ($padding-vertical - 1px) ($padding-horizontal - 1px);
+
+  // Green: Hover
+  @include hf-effect {
+    border: 2px solid $green-darkest;
+    padding: ($padding-vertical - 2px) ($padding-horizontal - 2px);
+  }
+
+  // Green: Clicked
+  &:active {
+    background-color: $green;
+    border: 1px solid $green-darkest;
+    padding: ($padding-vertical - 1px) ($padding-horizontal - 1px);
+  }
+}
+
+@mixin button-green-inverted {
+  @include button-base;
+  color: $white;
+  background-color: $green-dark;
+  border: 1px solid $white;
+  padding: ($padding-vertical - 1px) ($padding-horizontal - 1px);
+
+  // Green-inverted: Hover
+  @include hf-effect {
+    border: 2px solid $white;
+    padding: ($padding-vertical - 2px) ($padding-horizontal - 2px);
+  }
+
+  // Green-inverted: Clicked
+  &:active {
+    color: $green-darkest;
+    border-color: $white;
+    background-color: $white;
+  }
+}
+
+/* Link button styles */
+@mixin button-link {
+  @include font-style('body');
+  width: fit-content;
+  box-shadow: none;
+  cursor: pointer;
+  flex-grow: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 0;
+  color: $blue-dark;
+  letter-spacing: 0.64px;
+
+  @include hf-effect {
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  &::after {
+    @include svg($triangle-right, $blue-light);
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-left: 4px;
+  }
+
+  span {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-wrap: auto; // JBB - MJH-1483
+  }
+
+  &.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: $color-disabled;
+  }
+}
+
+@mixin button-link-inverted {
+  @include button-link;
+  color: $white;
+
+  &::after {
+    @include svg($triangle-right, $white);
+  }
+}
+
+@mixin button-link-simple {
+  @include button-link;
+  color: $white;
+  text-transform: uppercase;
+  text-decoration: underline solid $white;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    text-decoration-thickness: 1px;
+  }
+}
+
+/* Button Icon styles */
+@mixin button-small {
+  @include button-base;
+  padding: 11px 19px;
+  border: 1px solid $white;
+  color: $white;
+
+  @include hf-effect {
+    color: $blue-dark;
+    background-color: $white;
+  }
+
+  &:active {
+    color: $white;
+    background-color: transparent;
+    border: 2px solid $white;
+    padding: 10px 18px;
+  }
+}
+
+/* Button Icon styles */
+@mixin button-icon-before {
+  &::before {
+    content: '';
+    display: inline-block;
+    width: auto;
+    margin-right: 12px;
+    color: inherit;
+  }
+}
+
+@mixin button-icon-after {
+  &::after {
+    content: '';
+    display: inline-block;
+    width: auto;
+    margin-left: 12px;
+    color: inherit;
+  }
+}
+
+@mixin button-icon($icon) {
+  &.button--icon-before {
+    &::before {
+      @include fa-solid-icon($icon);
+    }
+  }
+
+  &.button--icon-after {
+    &::after {
+      @include fa-solid-icon($icon);
+    }
+  }
+}

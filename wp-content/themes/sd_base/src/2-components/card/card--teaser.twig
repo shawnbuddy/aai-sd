@@ -1,0 +1,82 @@
+{# HOW TO USE:
+  {% include '@components/card/card.twig' with {
+    'variant': 'your_variant',
+    'image': 'your_image',
+    'tag': {
+      'text': 'your_tag_text',
+    },
+    'title': 'your_title',
+    'subhead': 'your_subhead',
+    'description': 'your_description',
+    'cta': {
+      'text': 'your_cta_text',
+      'url': 'your_cta_url',
+      'variant': 'your_cta_variant',
+    }
+  } %}
+#}
+
+{% if 'localhost' not in host %}
+  {{ function('load_assets', 'card') }}
+{% endif %}
+
+{%
+  set class_list = [
+    'card',
+    variant ? 'card--' ~ variant : 'card--teaser',
+  ]
+%}
+{% for v in variant %}
+  {% set class_list = class_list|merge(['card--' ~ v]) %}
+{% endfor %}
+
+<article class="{{ class_list|join(' ')|trim }}">
+  {% if image %}
+    <div class="card__image">
+      {{ image }}
+    </div>
+  {% endif %}
+  <div class="card__content">
+    <h2 class="card__title h3">{{ title }}</h2>
+    {% if type and location %}
+      <div class="card__subhead type">{{ type }} • {{ location }}</div>
+    {% endif %}
+    {% if description %}
+      <div class="card__description">{{ description|raw }}</div>
+    {% endif %}
+    {% if did_you_know_text %}
+      <span class="card__question">Did you know?</span>
+      <p>{{ did_you_know_text }}</p>
+    {% endif %}
+  </div>
+  <div class="card__links">
+    <div class="button-wrap">
+      {% include 'src/1-elements/button/button.twig' with {
+        text: 'Ask ' ~ first_name ~ ' a Question',
+        variant: ['primary'],
+        icon: 'microphone',
+        link: '/survivors/' ~ survivor_slug ~ '/'
+      } %}
+      {% if intro_video_url %}
+        {% include 'src/1-elements/button/button.twig' with {
+          text: 'Video Intro',
+          variant: ['secondary'],
+          icon: 'video',
+          video_url: intro_video_url,
+        } %}
+      {% endif %}
+      {% include 'src/1-elements/button/button.twig' with {
+        text: 'View ' ~ pronoun ~ ' Story',
+        variant: ['secondary'],
+        icon: 'story',
+        link: '/timeline/' ~ survivor_slug ~ '/'
+      } %}
+      {% include 'src/1-elements/button/button.twig' with {
+        text: 'Explore ' ~ pronoun ~ ' Journey',
+        variant: ['secondary'],
+        icon: 'map',
+        link: '/journeys/' ~ survivor_slug ~ '/'
+      } %}
+    </div>
+  </div>
+</article>

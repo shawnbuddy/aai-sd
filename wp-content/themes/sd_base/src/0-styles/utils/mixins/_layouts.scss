@@ -1,0 +1,81 @@
+/* ======= Layout ======= */
+@use "sass:math";
+@use "../variables" as *;
+
+$grid-columns: 12;
+$gap-width: 16px;
+
+// Layout gutters and max-widths
+$desktop-gutter-width: 64px;
+$mobile-gutter-width: 24px;
+$full-width: 1600px;
+$text-full-width: 768px;
+
+// 1440px + gutters to account for padding
+$max-width: $full-width + (2 * $desktop-gutter-width);
+
+// Container for full width content
+@mixin container {
+  max-width: $max-width;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $mobile-gutter-width;
+  padding-right: $mobile-gutter-width;
+  z-index: 1;
+  position: relative;
+
+  @media screen and (min-width: 1200px) {
+    padding-left: $desktop-gutter-width;
+    padding-right: $desktop-gutter-width;
+  }
+}
+
+// Container full bleed background color
+@mixin bleeding-bg($bg-color: $white) {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    background-color: $bg-color;
+    z-index: $z-index-lowest - 1;
+  }
+}
+
+// Container for text content
+@mixin container-text {
+  max-width: $text-full-width;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ======= FLEXBOX MIXINS ======= */
+// Mixin for creating a row
+@mixin make-row($gap:$gap-width) {
+  display: flex;
+  gap: $gap;
+}
+
+// Mixin for creating a column with a specified width
+@mixin make-col($col-span:$grid-columns) {
+  flex: 1 1 math.percentage(math.div($col-span, $grid-columns));
+  width: math.percentage(math.div($col-span, $grid-columns));
+}
+
+/* ======= GRID MIXINS ======= */
+// Mixin for creating a grid
+@mixin make-grid($rows:null, $columns:null, $gap:$gap-width, $row-gap:null, $column-gap:null) {
+  display: grid;
+  gap: $gap;
+  row-gap: $row-gap;
+  column-gap: $column-gap;
+  grid-template-rows: repeat($rows, 1fr);
+  grid-template-columns: repeat($columns, 1fr);
+}

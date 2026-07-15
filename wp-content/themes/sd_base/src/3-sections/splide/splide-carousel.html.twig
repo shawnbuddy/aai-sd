@@ -1,0 +1,18 @@
+
+<div class="splide-carousel">
+  <section id="carousel-{{ galleryid }}" class="splide"  aria-label="Image Carousel {{ galleryid }}">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {{ content.field_gallery_images }}
+      </ul>
+    </div>
+    <div class="custom-pagination"></div>
+  </section>
+  <section id="thumbnail-carousel-{{ galleryid }}"  class="splide splide-thumbnails" aria-label="The carousel with thumbnails. Selecting a thumbnail will change carousel {{ galleryid }}.">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {{ content.field_gallery_images }}
+      </ul>
+    </div>
+  </section>
+</div>

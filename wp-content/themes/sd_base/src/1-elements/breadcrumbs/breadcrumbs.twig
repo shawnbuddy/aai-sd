@@ -1,0 +1,27 @@
+{% set host = host|default('') %}
+
+{% if 'localhost' not in host %}
+{{ function('load_assets', 'breadcrumbs') }}
+{% endif %}
+
+{%
+  set class_list = [
+    'breadcrumbs',
+    variant ? 'breadcrumbs--' ~ variant : '',
+  ]
+%}
+<nav role="navigation" aria-labelledby="system-breadcrumb" class="breadcrumbs-wrap">
+  <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+  <ol class="{{ class_list|join(' ') }}">
+    <li>
+      <a href="#" class="breadcrumbs__link">Home</a>
+    </li>
+    <li>
+      <a href="#" class="breadcrumbs__link">Level 2</a>
+    </li>
+    <li>
+      <i class="fa-solid fa-chevron-left"></i>
+      <a href="#" class="breadcrumbs__link">Level 3</a>
+    </li>
+  </ol>
+</nav>

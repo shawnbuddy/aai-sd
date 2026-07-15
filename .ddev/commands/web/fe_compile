@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+## Description: Compile theme CSS assets
+## Usage: fe_compile
+
+set -euo pipefail
+
+THEME_DIR="/var/www/html/web/wp-content/themes/sd_base"
+
+if [ ! -d "${THEME_DIR}" ]; then
+  echo "Theme directory not found: ${THEME_DIR}"
+  exit 1
+fi
+
+cd "${THEME_DIR}"
+npm run build:css

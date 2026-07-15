@@ -1,0 +1,13 @@
+<div class="color-palettes">
+  {% for category, color_group in colors %}
+    <div class="color-palette__swatch">
+      <h2 class="color-palette__label sb-label">{{ category | replace({'-': ' '}) | capitalize }}</h2>
+      {% for color in color_group %}
+        <div class="color-palette__item" style="background-color: {{ color.hex }}; color: {{ color.text_color }};">
+          <span class="color-palette-label">${{ color.name }}</span>
+          <span class="color-palette-hex">{{ color.hex }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>

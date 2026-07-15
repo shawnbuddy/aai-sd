@@ -1,0 +1,14 @@
+/* ==== SCSS Utils ==== */
+@forward './variables';
+@forward './mixins/typography';
+@forward './mixins/breakpoints';
+@forward './mixins/inputs';
+@forward './mixins/buttons';
+@forward './mixins/layouts';
+@forward './mixins/spacing';
+@forward './mixins/patterns';
+@forward './mixins/legacy' hide svg; // JBB - 2025-10-24
+/* MJ 7.17.24: Only call utilites like variable definitions and mixins.
+* ! Do not add any class or ID selects, or it will render output into EVERY .css file.
+* Add styles to global.scss instead to add styles globally.
+*/

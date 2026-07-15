@@ -1,0 +1,116 @@
+@use '@util' as *;
+
+.input-group {
+  @include font-style('body');
+}
+
+/* Labels */
+label {
+  @include standard-label;
+}
+
+details {
+  @include standard-details;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"] {
+  @include standard-input;
+
+  & + .input-help-text {
+    @include font-style('body-sm');
+    margin-top: 6px;
+  }
+}
+
+input[type="date"] {
+  background: calc(100% - 16px) 50% url('../images/calendar-days-solid.svg') no-repeat;
+  background-size: 16px;
+  position: relative;
+
+  &::-webkit-datetime-edit {
+    text-transform: uppercase;
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    color: transparent;
+    background: transparent;
+  }
+}
+
+input[type="search"] {
+  @include standard-input-search;
+}
+
+.checkbox-group {
+  @include custom-checkbox;
+}
+
+.radio-group {
+  @include custom-radio;
+}
+
+/* Selects */
+select {
+  @include standard-select;
+}
+
+.input-group,
+.select-group {
+  input,
+  select {
+    width: 282px;
+    height: 64px;
+  }
+
+  p {
+    font-size: rem(16);
+    margin-top: $space-1x;
+    color: $gray;
+  }
+
+  .button {
+    max-height: 58px;
+
+    @include tablet-down {
+      margin-top: $space-2x;
+    }
+
+    @include tablet-up {
+      margin-left: $space-3x;
+    }
+  }
+}
+
+.input-group--error {
+  color: $color-error;
+
+  input {
+    border-color: $color-error;
+  }
+
+  p {
+    color: $color-error;
+  }
+}
+
+.input-group--success {
+  color: $color-success;
+
+  input {
+    border-color: $color-success;
+  }
+
+  p {
+    color: $color-success;
+  }
+}

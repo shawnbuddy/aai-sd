@@ -1,0 +1,63 @@
+@use '@util' as *;
+
+.social-share {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: $gray;
+
+  &.social-share--bordered {
+    border-top: 2px solid $gray;
+    padding-top: 16px;
+  }
+
+  &.social-share--inverted {
+    color: $white;
+    border-color: $white;
+
+    a {
+      &:hover,
+      &:focus {
+        background-color: $white;
+
+        i {
+          color: $gray;
+        }
+      }
+
+      i {
+        color: $white;
+      }
+    }
+  }
+
+  .social-share {
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    margin-right: 6px;
+  }
+
+  a {
+    color: $gray;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.2s all ease;
+    min-width: 18px;
+
+    i {
+      display: block;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $gray;
+
+      i {
+        color: $white;
+      }
+    }
+  }
+}

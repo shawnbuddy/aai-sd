@@ -1,0 +1,23 @@
+<div class="typography-story">
+  {% for key, styles in typography %}
+    <h2 class="sb-label">{{ key|capitalize }} Styles</h2>
+    <table class="sb-table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Font Size / Font Weight</th>
+        <th>Sample Text</th>
+      </tr>
+      </thead>
+      <tbody>
+        {% for style in styles %}
+          <tr>
+            <td>{{ style.name }}</td>
+            <td>{{ style.font_size }} / {{ style.font_weight }}</td>
+            <td width="50%"><{{ style.tag }} class="{{ style.class }}" style="font-size:{{ style.font_size }}; font-weight:{{ style.font_weight }};">{{ style.content }}</{{ style.tag }}></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endfor %}
+</div>

@@ -1,0 +1,102 @@
+{
+  "primary": {
+    "variant": ["primary"],
+    "text": "Ask Marion a Question",
+    "link": "#",
+    "icon": "microphone"
+  },
+  "primary_icon_before": {
+    "variant": ["primary", "icon-before", "icon-bookmark"],
+    "text": "Primary Button",
+    "link": "#"
+  },
+  "primary_icon_after": {
+    "variant": ["primary", "icon-after", "icon-bookmark"],
+    "text": "Primary Button",
+    "link": "#"
+  },
+  "primary_inverted": {
+    "variant": ["primary-inverted"],
+    "text": "Primary Button",
+    "link": "#"
+  },
+  "primary_chevron": {
+    "variant": ["primary", "chevron"],
+    "text": "Primary w/ chevron",
+    "link": "#"
+  },
+  "primary_disabled": {
+    "variant": ["primary"],
+    "text": "Button Disabled",
+    "link": "#",
+    "disabled": "disabled"
+  },
+  "primary_disabled_inverted": {
+    "variant": ["primary-inverted"],
+    "text": "Button Disabled",
+    "link": "#",
+    "disabled": "disabled"
+  },
+  "secondary": {
+    "variant": ["secondary"],
+    "text": "View Her Story",
+    "link": "#",
+    "icon": "story"
+  },
+  "secondary_inverted": {
+    "variant": ["secondary-inverted"],
+    "text": "Secondary Button",
+    "link": "#"
+  },
+  "secondary_chevron": {
+    "variant": ["secondary", "chevron"],
+    "text": "Secondary w/ chevron",
+    "link": "#"
+  },
+  "blue": {
+    "variant": ["blue"],
+    "text": "Blue Button",
+    "link": "#"
+  },
+  "blue_inverted": {
+    "variant": ["blue-inverted"],
+    "text": "Blue Button",
+    "link": "#"
+  },
+  "green": {
+    "variant": ["green"],
+    "text": "Green Button",
+    "link": "#"
+  },
+  "green_inverted": {
+    "variant": ["green-inverted"],
+    "text": "Green Button",
+    "link": "#"
+  },
+  "link": {
+    "variant": ["link"],
+    "text": "Learn MORE",
+    "link": "#"
+  },
+  "link_simple": {
+    "variant": ["link-simple"],
+    "text": "Learn MORE",
+    "link": "#"
+  },
+  "link_inverted": {
+    "variant": ["link-inverted"],
+    "text": "Button",
+    "link": "#"
+  },
+  "link_disabled": {
+    "variant": ["link"],
+    "text": "Button",
+    "link": "#",
+    "disabled": "disabled"
+  },
+  "button_small": {
+    "variant": ["small"],
+    "text": "Small Button",
+    "link": "#"
+  }
+}

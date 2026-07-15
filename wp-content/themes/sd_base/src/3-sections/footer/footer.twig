@@ -1,0 +1,49 @@
+<footer class="footer">
+  <div class="container guttered">
+    <div class="footer__top">
+      <div class="footer__logo">
+        {% if function('has_custom_logo') %}
+          {{ function('get_custom_logo') }}
+        {% else %}
+          <a href="{{ site.url }}" rel="home" title="{{ site.name }}">
+            <span class="h3">{{ site.name }}</span>
+          </a>
+        {% endif %}
+      </div>
+      <div class="footer__description">
+        <p>{{ site.description }}</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__column">
+        <h2 class="h3">About</h2>
+        <div class="footer__address">
+          <div class="footer__address-item">
+            <p>&copy; {{ "now"|date("Y") }} {{ site.name }}</p>
+            <p><a href="{{ site.url }}">{{ site.url }}</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="footer__column">
+        <h2 class="h3">Navigate</h2>
+        {% set footer_menu = function('wp_nav_menu', {
+          'theme_location': 'footer-menu',
+          'container': false,
+          'echo': false,
+          'menu_class': 'footer-menu'
+        }) %}
+        {% if footer_menu %}
+          {{ footer_menu|raw }}
+        {% else %}
+          <ul class="footer-menu">
+            {{ function('wp_list_pages', {'title_li': '', 'echo': 0})|raw }}
+          </ul>
+        {% endif %}
+      </div>
+      <div class="footer__column">
+        <h2 class="h3">Search</h2>
+        {{ function('get_search_form') }}
+      </div>
+    </div>
+  </div>
+</footer>

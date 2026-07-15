@@ -1,0 +1,111 @@
+@use '@util' as *;
+
+.splide-carousel {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.splide {
+  .splide__slide {
+    figure {
+      height: 100%;
+    }
+  }
+}
+
+.splide__pagination {
+  position: relative;
+  top: auto;
+  transform: none;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  margin: 0 auto;
+
+  li {
+    margin: 0 9px;
+  }
+
+  .is-active {
+    width: 6px;
+    height: 6px;
+    transition: all 0.3s linear;
+    border-radius: 100px;
+    transform: none;
+    opacity: 1;
+  }
+
+  &__page {
+    margin: 0;
+    width: 6px;
+    height: 6px;
+    transition: all 0.3s linear;
+    background-color: $gray-light;
+    opacity: 0.5;
+  }
+}
+
+.splide__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transform: none;
+  background-color: transparent;
+  opacity: 1;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.33);
+  border-radius: 50%;
+  transition: opacity 0.3s ease-in;
+
+  &:hover {
+    &:not(:disabled) {
+      opacity: 1;
+    }
+  }
+
+  &:disabled {
+    transition: opacity 0.3s ease-out;
+  }
+
+  svg {
+    fill: $white;
+  }
+}
+
+.splide__arrow--prev {
+  left: -16px;
+
+  @media screen and (min-width: 1200px) {
+    left: -44px;
+  }
+}
+
+.splide__arrow--next {
+  right: -16px;
+
+  @media screen and (min-width: 1200px) {
+    right: -44px;
+  }
+}
+
+.splide__arrows {
+  @include tablet-down {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+  }
+}
+
+.slide-counter {
+  margin: 0 24px;
+  font-family: $display-text;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 140%;
+
+  @include tablet-up {
+    display: none;
+  }
+}

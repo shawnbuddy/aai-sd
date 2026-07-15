@@ -1,0 +1,29 @@
+{# HOW TO USE:
+  {% include '@components/card/card-row.twig' with {
+    cards: your_cards
+  } %}
+#}
+
+{% set host = host|default('') %}
+
+{% if 'localhost' not in host %}
+{{ function('load_assets', 'card') }}
+{% endif %}
+<div class="three-up">
+  {% for card in cards %}
+    {% include '@components/card/card--teaser.twig' with {
+      'variant': card.variant,
+      'image': card.image,
+      'tag': {
+        'text': card.tag.text
+      },
+      'title': card.title,
+      'description': card.description,
+      'cta': {
+        'variant': ['link'],
+        'text': card.cta.text,
+        'link': card.cta.link
+      }
+    } %}
+  {% endfor %}
+</div>
