@@ -1,0 +1,15 @@
+<section class="related-content">
+  {% if heading %}
+    <h2 class="related-content__heading">{{ heading }}</h2>
+  {% endif %}
+
+  {% if posts %}
+    <ul class="related-content__list">
+      {% for item in posts %}
+        <li class="related-content__item">
+          <a class="related-content__link" href="{{ function('get_permalink', item.ID) }}">{{ item.post_title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>

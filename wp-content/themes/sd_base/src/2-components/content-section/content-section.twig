@@ -1,0 +1,13 @@
+<section class="content-section"{% if anchor_id %} id="{{ anchor_id|e('html_attr') }}"{% endif %}>
+  {% if heading %}
+    <h2 class="content-section__heading">{{ heading }}</h2>
+  {% endif %}
+
+  {% if content %}
+    <div class="content-section__content">{{ content|raw }}</div>
+  {% endif %}
+
+  {% if cta %}
+    <a class="content-section__cta" href="{{ cta.url }}"{% if cta.target %} target="{{ cta.target }}" rel="noopener noreferrer"{% endif %}>{{ cta.title }}</a>
+  {% endif %}
+</section>

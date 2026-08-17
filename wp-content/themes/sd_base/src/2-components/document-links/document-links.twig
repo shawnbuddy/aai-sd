@@ -1,0 +1,21 @@
+<section class="document-links">
+  {% if heading %}
+    <h2 class="document-links__heading">{{ heading }}</h2>
+  {% endif %}
+
+  {% if documents %}
+    <ul class="document-links__list">
+      {% for document in documents %}
+        {% set href = document.file.url ?? document.url %}
+        {% if href %}
+          <li class="document-links__item">
+            <a class="document-links__link" href="{{ href }}">{{ document.title }}</a>
+            {% if document.description %}
+              <p class="document-links__description">{{ document.description }}</p>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>

@@ -1,10 +1,14 @@
 <?php
+
 /**
+ * @file
  * SD Base theme bootstrap.
  *
  * Keeps Timber/Twig rendering and generic ACF block registration
  * while removing project-specific business logic.
  */
+
+// phpcs:disable
 
 use Timber\Timber;
 
@@ -41,6 +45,9 @@ sd_theme_load_autoloader();
 function sd_theme_load_includes(): void {
   $include_files = [
     __DIR__ . '/inc/plan-content-type.php',
+    __DIR__ . '/inc/kentico-content-model.php',
+    __DIR__ . '/inc/kentico-migration-map.php',
+    __DIR__ . '/inc/kentico-blocks.php',
   ];
 
   foreach ($include_files as $include_file) {
@@ -291,6 +298,8 @@ function sd_register_acf_blocks(): void {
     ],
   ];
 
+  $blocks = apply_filters('sd/acf_blocks', $blocks);
+
   foreach ($blocks as $block) {
     $block = array_merge($defaults, $block);
     $name = $block['name'];
@@ -310,7 +319,7 @@ function sd_register_acf_blocks(): void {
       'post_types'      => $block['post_types'],
       'mode'            => $block['mode'],
       'supports'        => $block['supports'],
-      'render_callback' => 'sd_render_block_generic',
+      'render_callback' => $block['render_callback'] ?? 'sd_render_block_generic',
       'enqueue_style'   => $block['enqueue_style'],
     ]);
 

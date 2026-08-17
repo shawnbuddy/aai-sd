@@ -1,0 +1,25 @@
+<section class="accordion-group">
+  {% if heading %}
+    <h2 class="accordion-group__heading">{{ heading }}</h2>
+  {% endif %}
+
+  {% if intro %}
+    <div class="accordion-group__intro">{{ intro|raw }}</div>
+  {% endif %}
+
+  {% if items %}
+    <div class="accordion-group__items">
+      {% for item in items %}
+        <details class="accordion-group__item">
+          <summary class="accordion-group__summary">{{ item.heading }}</summary>
+          <div class="accordion-group__content">
+            {{ item.content|raw }}
+            {% if item.cta %}
+              <a class="accordion-group__cta" href="{{ item.cta.url }}"{% if item.cta.target %} target="{{ item.cta.target }}" rel="noopener noreferrer"{% endif %}>{{ item.cta.title }}</a>
+            {% endif %}
+          </div>
+        </details>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
