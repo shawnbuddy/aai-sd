@@ -245,6 +245,7 @@ function sd_kentico_source_map(): array {
       'strategy' => 'wordpress',
       'post_type' => 'post',
       'transforms' => ['NewsTitle' => 'strip_tags'],
+      'post_content_fallbacks' => ['NewsSummary'],
       'fields' => [
         'NewsTitle' => 'post_title',
         'NewsText' => 'post_content',
@@ -257,8 +258,10 @@ function sd_kentico_source_map(): array {
     'CMS.MenuItem' => [
       'strategy' => 'wordpress',
       'post_type' => 'page',
+      'transforms' => ['DocumentContent' => 'document_content'],
       'fields' => [
         'MenuItemName' => 'post_title',
+        'DocumentContent' => 'post_content',
         'PageTitleImage' => 'featured_image',
       ],
       'note' => 'Create WordPress menu assignments separately after page import.',
@@ -281,6 +284,8 @@ function sd_kentico_source_map(): array {
     'CMS.Event' => [
       'strategy' => 'wordpress',
       'post_type' => 'post',
+      'post_content_fallbacks' => ['DocumentContent'],
+      'transforms' => ['DocumentContent' => 'document_content'],
       'fields' => [
         'EventName' => 'post_title',
         'EventDetails' => 'post_content',
@@ -297,6 +302,7 @@ function sd_kentico_source_map(): array {
     'aai.travelaward' => [
       'term' => 'travel-award',
       'title' => 'Travel Award',
+      'title_source' => 'TA_AwardType',
       'fields' => [
         'TA_AwardType' => 'taxonomy:award_program_type',
         'TA_Description' => 'post_content',
@@ -311,6 +317,7 @@ function sd_kentico_source_map(): array {
     'aai.career_award' => [
       'term' => 'career-award',
       'title' => 'Career Award',
+      'title_source' => 'CA_AwardType',
       'fields' => [
         'CA_AwardType' => 'taxonomy:award_program_type',
         'CA_Description' => 'post_content',
@@ -405,6 +412,7 @@ function sd_kentico_source_map(): array {
       'strategy' => 'wordpress',
       'post_type' => 'award_program',
       'fixed_title' => $definition['title'] ?? null,
+      'title_source' => $definition['title_source'] ?? null,
       'fixed_terms' => ['award_program_type' => $definition['term']],
       'fields' => $definition['fields'],
     ];

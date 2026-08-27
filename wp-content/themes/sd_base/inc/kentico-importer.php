@@ -246,6 +246,24 @@ final class SD_Kentico_Content_Importer {
       $taxonomy_values[$taxonomy][] = $term;
     }
 
+    if (empty($post_data['post_content'])) {
+      foreach ($rule['post_content_fallbacks'] ?? [] as $source_field) {
+        if (empty($record[$source_field])) {
+          continue;
+        }
+
+        $post_data['post_content'] = $this->transform_value(
+          $record[$source_field],
+          $rule['transforms'][$source_field] ?? ''
+        );
+        break;
+      }
+    }
+
+    $title_source = $rule['title_source'] ?? '';
+    if (empty($post_data['post_title']) && $title_source && !empty($record[$title_source])) {
+      $post_data['post_title'] = wp_strip_all_tags($record[$title_source]);
+    }
     if (empty($post_data['post_title'])) {
       $post_data['post_title'] = $rule['fixed_title'] ?? $this->fallback_title($record, $identity);
     }
@@ -492,11 +510,36 @@ final class SD_Kentico_Content_Importer {
   }
 
   private function transform_value(string $value, string $transform): string {
+    $value = trim($value);
+    if ($transform === 'document_content') {
+      $value = $this->extract_document_content($value);
+    }
+    if (preg_match('/^<!\[CDATA\[(.*)\]\]>$/s', $value, $matches)) {
+      $value = trim($matches[1]);
+    }
+
     if ($transform === 'strip_tags') {
       return wp_strip_all_tags($value);
     }
 
-    return strpos($value, '<') !== false ? wp_kses_post($value) : trim($value);
+    return strpos($value, '<') !== false ? wp_kses_post($value) : $value;
+  }
+
+  private function extract_document_content(string $value): string {
+    $xml = simplexml_load_string($value, SimpleXMLElement::class, LIBXML_NONET | LIBXML_NOCDATA);
+    if ($xml === false) {
+      return '';
+    }
+
+    $parts = [];
+    foreach ($xml->xpath('//webpart') ?: [] as $webpart) {
+      $content = trim((string) $webpart);
+      if ($content !== '') {
+        $parts[] = $content;
+      }
+    }
+
+    return implode("\n\n", $parts);
   }
 
   private function mysql_date(string $value): string {
