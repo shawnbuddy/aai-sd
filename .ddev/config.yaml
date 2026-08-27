@@ -1,6 +1,6 @@
 name: aai
 type: wordpress
-docroot: web
+docroot: ""
 php_version: "8.3"
 webserver_type: nginx-fpm
 xdebug_enabled: false
@@ -13,14 +13,6 @@ use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
 corepack_enable: false
-
-hooks:
-  post-start:
-    - exec: |
-        if [ ! -f web/wp/wp-blog-header.php ]; then
-          echo "WordPress core not found. Downloading WordPress..."
-          wp core download --path=web/wp
-        fi
 
 # Key features of DDEV's config.yaml:
 

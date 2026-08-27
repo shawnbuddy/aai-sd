@@ -21,7 +21,10 @@
 .ddev/db_snapshots/
 .ddev/.global_commands/
 .ddev/.homeadditions/
+.ddev/docker-compose.kentico-data.yaml
 wp-config-local.php
+wp-config-ddev.php
+/web/wp-config.php
 
 # Local development
 *.code-workspace
@@ -31,6 +34,13 @@ wp-config-local.php
 /web/wp/
 
 # WordPress content that should not be committed
+/wp-content/uploads/
+/wp-content/upgrade/
+/wp-content/cache/
+/wp-content/backup-db/
+/wp-content/backups/
+/wp-content/ai1wm-backups/
+/wp-content/debug.log
 /web/wp-content/uploads/
 /web/wp-content/upgrade/
 /web/wp-content/cache/
@@ -40,6 +50,8 @@ wp-config-local.php
 /web/wp-content/debug.log
 
 # Composer-managed plugins
+/wp-content/plugins/*
+!/wp-content/plugins/.gitkeep
 /web/wp-content/plugins/*
 !/web/wp-content/plugins/.gitkeep
 
@@ -55,6 +67,8 @@ wp-config-local.php
 /web/wp-content/themes/sd_base/.DS_Store
 
 # WordPress generated files
+/wp-content/object-cache.php
+/wp-content/advanced-cache.php
 /web/wp-content/object-cache.php
 /web/wp-content/advanced-cache.php
 

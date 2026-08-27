@@ -39,6 +39,13 @@ function sd_kentico_source_map(): array {
     'aai.HistoryProfiles' => [
       'strategy' => 'wordpress',
       'post_type' => 'history_profile',
+      'taxonomy_value_maps' => [
+        'profile_type' => [
+          'Past_Presidents' => 'Past Presidents',
+          'Nobel_Laureates' => 'Nobel Laureates',
+          'Secretary_Treasurer' => 'Secretary/Treasurer',
+        ],
+      ],
       'fields' => [
         'Name' => 'post_title',
         'Prefix' => 'prefix',
@@ -133,6 +140,23 @@ function sd_kentico_source_map(): array {
     'aai.committees' => [
       'strategy' => 'wordpress',
       'post_type' => 'committee',
+      'taxonomy_value_maps' => [
+        'committee_type' => [
+          '01' => 'Awards Committee',
+          '02' => 'Clinical Immunology Committee',
+          '03' => 'Committee on Public Affairs',
+          '04' => 'Committee on the Status of Women',
+          '05' => 'Education Committee',
+          '06' => 'Finance Committee',
+          '07' => 'Membership Committee',
+          '08' => 'Minority Affairs Committee',
+          '09' => 'Nominating Committee',
+          '10' => 'Program Committee',
+          '11' => 'Publications Committee',
+          '12' => 'Veterinary Immunology Committee',
+          '13' => 'Ad-Hoc Committees',
+        ],
+      ],
       'fields' => [
         'CommitteeName' => 'post_title',
         'CommitteeType' => 'taxonomy:committee_type',
@@ -220,23 +244,52 @@ function sd_kentico_source_map(): array {
     'CMS.News' => [
       'strategy' => 'wordpress',
       'post_type' => 'post',
-      'fields' => ['title' => 'post_title', 'body' => 'post_content', 'date' => 'post_date', 'image' => 'featured_image'],
+      'transforms' => ['NewsTitle' => 'strip_tags'],
+      'fields' => [
+        'NewsTitle' => 'post_title',
+        'NewsText' => 'post_content',
+        'NewsSummary' => 'post_excerpt',
+        'NewsReleaseDate' => 'post_date',
+        'PageTitleImage' => 'featured_image',
+        'Featured_Image' => 'featured_image',
+      ],
     ],
     'CMS.MenuItem' => [
       'strategy' => 'wordpress',
       'post_type' => 'page',
-      'fields' => ['title' => 'post_title', 'body' => 'post_content'],
+      'fields' => [
+        'MenuItemName' => 'post_title',
+        'PageTitleImage' => 'featured_image',
+      ],
       'note' => 'Create WordPress menu assignments separately after page import.',
     ],
     'CMS.BookingEvent' => [
       'strategy' => 'events_calendar',
       'post_type' => 'tribe_events',
-      'fields' => ['title' => 'post_title', 'description' => 'post_content', 'date' => '_EventStartDate', 'location' => 'tribe_venue'],
+      'fields' => [
+        'EventFullName' => 'post_title',
+        'EventDetails' => 'post_content',
+        'EventSummary' => 'post_excerpt',
+        'EventDate' => '_EventStartDate',
+        'EventEndDate' => '_EventEndDate',
+        'EventAllDay' => '_EventAllDay',
+        'EventLocation' => 'tribe_venue',
+        'PageTitleImage' => 'featured_image',
+        'Image' => 'featured_image',
+      ],
     ],
     'CMS.Event' => [
-      'strategy' => 'events_calendar',
-      'post_type' => 'tribe_events',
-      'fields' => ['title' => 'post_title', 'description' => 'post_content', 'date' => '_EventStartDate', 'location' => 'tribe_venue'],
+      'strategy' => 'wordpress',
+      'post_type' => 'post',
+      'fields' => [
+        'EventName' => 'post_title',
+        'EventDetails' => 'post_content',
+        'EventSummary' => 'post_excerpt',
+        'EventDate_TextField' => 'kentico_event_date_text',
+        'EventLocation' => 'kentico_event_location',
+        'NewsOrder' => 'kentico_news_order',
+        'PageTitleImage' => 'featured_image',
+      ],
     ],
   ];
 

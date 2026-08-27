@@ -47,6 +47,7 @@ function sd_theme_load_includes(): void {
     __DIR__ . '/inc/plan-content-type.php',
     __DIR__ . '/inc/kentico-content-model.php',
     __DIR__ . '/inc/kentico-migration-map.php',
+    __DIR__ . '/inc/kentico-importer.php',
     __DIR__ . '/inc/kentico-blocks.php',
   ];
 
