@@ -24,22 +24,24 @@
           </div>
         </div>
       </div>
-      <div class="footer__column">
-        <h2 class="h3">Navigate</h2>
-        {% set footer_menu = function('wp_nav_menu', {
-          'theme_location': 'footer-menu',
-          'container': false,
-          'echo': false,
-          'menu_class': 'footer-menu'
-        }) %}
-        {% if footer_menu %}
-          {{ footer_menu|raw }}
-        {% else %}
-          <ul class="footer-menu">
-            {{ function('wp_list_pages', {'title_li': '', 'echo': 0})|raw }}
-          </ul>
-        {% endif %}
-      </div>
+      {% if show_navigation %}
+        <div class="footer__column">
+          <h2 class="h3">Navigate</h2>
+          {% set footer_menu = function('wp_nav_menu', {
+            'theme_location': 'footer-menu',
+            'container': false,
+            'echo': false,
+            'menu_class': 'footer-menu'
+          }) %}
+          {% if footer_menu %}
+            {{ footer_menu|raw }}
+          {% else %}
+            <ul class="footer-menu">
+              {{ function('wp_list_pages', {'title_li': '', 'echo': 0})|raw }}
+            </ul>
+          {% endif %}
+        </div>
+      {% endif %}
       <div class="footer__column">
         <h2 class="h3">Search</h2>
         {{ function('get_search_form') }}

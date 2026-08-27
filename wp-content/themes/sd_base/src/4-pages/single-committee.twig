@@ -1,0 +1,18 @@
+{% set detail_fields = [
+  { field: 'application_from_date', label: 'Application Opens' },
+  { field: 'application_to_date', label: 'Application Closes' }
+] %}
+{% set taxonomy_fields = [
+  { name: 'committee_type', label: 'Committee Type' }
+] %}
+{% set content_sections = [
+  { field: 'committee_role', label: 'Committee Role' },
+  { field: 'committee_mission', label: 'Committee Mission' },
+  { field: 'committee_members', label: 'Committee Members' },
+  { field: 'members_tab', label: 'Members' },
+  { field: 'activities_and_symposia', label: 'Activities and Symposia' },
+  { field: 'session_tab', label: 'Sessions' },
+  { field: 'committee_resources', label: 'Resources' },
+  { field: 'subcommittees', label: 'Subcommittees' }
+] %}
+{% include 'src/4-pages/single-kentico.twig' %}

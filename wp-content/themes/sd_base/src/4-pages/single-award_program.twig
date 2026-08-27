@@ -1,0 +1,25 @@
+{% set detail_fields = [
+  { field: 'application_from_date', label: 'Application Opens' },
+  { field: 'application_to_date', label: 'Application Closes' }
+] %}
+{% set content_sections = [
+  { field: 'introduction', label: 'Introduction' },
+  { field: 'description', label: 'Additional Information' },
+  { field: 'eligibility', label: 'Eligibility' },
+  { field: 'award_details', label: 'Award Details' },
+  { field: 'requirements', label: 'Requirements' },
+  { field: 'fellowship_support', label: 'Fellowship Support' },
+  { field: 'travel_support', label: 'Travel Support' },
+  { field: 'terms_conditions', label: 'Terms and Conditions' },
+  { field: 'process', label: 'Process' },
+  { field: 'program_details', label: 'Program' },
+  { field: 'goals', label: 'Goals' },
+  { field: 'structure', label: 'Structure' },
+  { field: 'award_cycles', label: 'Award Cycles' },
+  { field: 'nomination', label: 'Nomination' },
+  { field: 'deadline', label: 'Deadline' },
+  { field: 'application_instructions', label: 'Application Instructions' },
+  { field: 'current_recipients', label: 'Current Recipients' },
+  { field: 'past_recipients', label: 'Past Recipients' }
+] %}
+{% include 'src/4-pages/single-kentico.twig' %}

@@ -1,0 +1,11 @@
+{% set detail_fields = [
+  { field: 'article_author', label: 'Author' },
+  { field: 'series_description_2', label: 'Series' }
+] %}
+{% set taxonomy_fields = [
+  { name: 'history_series', label: 'History Series' }
+] %}
+{% set content_sections = [
+  { field: 'display_title', label: 'Display Title' }
+] %}
+{% include 'src/4-pages/single-kentico.twig' %}

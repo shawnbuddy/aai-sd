@@ -8,30 +8,32 @@
           <span class="h3">{{ site.name }}</span>
         </a>
       {% endif %}
-      <button class="toggle-menu" id="js-toggle-menu">
+      <button class="toggle-menu" id="js-toggle-menu"{% if not show_navigation %} hidden{% endif %}>
         <div class="hamburger">
           <i></i>
         </div>
       </button>
     </div>
-    <div class="site-drawer" id="js-site-drawer">
-      <div class="container guttered">
-        <nav class="site-drawer__nav" aria-label="Primary menu">
-          {% set main_menu = function('wp_nav_menu', {
-            'theme_location': 'main-menu',
-            'container': false,
-            'echo': false,
-            'menu_class': 'menu'
-          }) %}
-          {% if main_menu %}
-            {{ main_menu|raw }}
-          {% else %}
-            <ul class="menu">
-              {{ function('wp_list_pages', {'title_li': '', 'echo': 0})|raw }}
-            </ul>
-          {% endif %}
-        </nav>
+    {% if show_navigation %}
+      <div class="site-drawer" id="js-site-drawer">
+        <div class="container guttered">
+          <nav class="site-drawer__nav" aria-label="Primary menu">
+            {% set main_menu = function('wp_nav_menu', {
+              'theme_location': 'main-menu',
+              'container': false,
+              'echo': false,
+              'menu_class': 'menu'
+            }) %}
+            {% if main_menu %}
+              {{ main_menu|raw }}
+            {% else %}
+              <ul class="menu">
+                {{ function('wp_list_pages', {'title_li': '', 'echo': 0})|raw }}
+              </ul>
+            {% endif %}
+          </nav>
+        </div>
       </div>
-    </div>
+    {% endif %}
   </div>
 </header>

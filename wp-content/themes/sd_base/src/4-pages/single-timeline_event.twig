@@ -1,0 +1,11 @@
+{% set detail_fields = [
+  { field: 'start', label: 'Date' },
+  { field: 'year', label: 'Year' },
+  { field: 'media_type', label: 'Media Type' },
+  { field: 'credit', label: 'Credit' },
+  { field: 'caption', label: 'Caption' }
+] %}
+{% set taxonomy_fields = [
+  { name: 'timeline_category', label: 'Category' }
+] %}
+{% include 'src/4-pages/single-kentico.twig' %}

@@ -1,0 +1,67 @@
+<div class="basic-page basic-page--{{ post.post_type }}">
+  <article class="page-content">
+    {% include 'src/3-sections/hero/hero-landing.twig' with {
+      title: post.title
+    } %}
+
+    <div class="container guttered">
+      {% if post.thumbnail %}
+        <figure class="page-content__image">
+          <img src="{{ post.thumbnail.src('large') }}" alt="{{ post.thumbnail.alt }}" />
+        </figure>
+      {% else %}
+        {% set page_title_image = post.meta('page_title_image') %}
+        {% if page_title_image %}
+          <figure class="page-content__image">
+            {% if page_title_image is iterable %}
+              <img src="{{ page_title_image.url }}" alt="{{ page_title_image.alt }}" />
+            {% else %}
+              {{ function('wp_get_attachment_image', page_title_image, 'large')|raw }}
+            {% endif %}
+          </figure>
+        {% endif %}
+      {% endif %}
+
+      {% if detail_fields or taxonomy_fields %}
+        <dl class="page-content__details">
+          {% for detail in detail_fields|default([]) %}
+            {% set value = post.meta(detail.field) %}
+            {% if value %}
+              <div class="page-content__detail">
+                <dt>{{ detail.label }}</dt>
+                <dd>{{ value }}</dd>
+              </div>
+            {% endif %}
+          {% endfor %}
+          {% for taxonomy in taxonomy_fields|default([]) %}
+            {% set terms = function('get_the_terms', post.id, taxonomy.name) %}
+            {% if terms and terms is iterable %}
+              <div class="page-content__detail">
+                <dt>{{ taxonomy.label }}</dt>
+                <dd>
+                  {% for term in terms %}
+                    {{ term.name }}{% if not loop.last %}, {% endif %}
+                  {% endfor %}
+                </dd>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </dl>
+      {% endif %}
+
+      {% if post.content %}
+        <div class="body">{{ post.content|raw }}</div>
+      {% endif %}
+
+      {% for section in content_sections|default([]) %}
+        {% set content = post.meta(section.field) %}
+        {% if content %}
+          <section class="page-content__section">
+            <h2>{{ section.label }}</h2>
+            <div class="body">{{ content|raw }}</div>
+          </section>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </article>
+</div>

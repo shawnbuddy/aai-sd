@@ -1,0 +1,27 @@
+{% set detail_fields = [
+  { field: 'in_office', label: 'In Office' },
+  { field: 'in_office_eic', label: 'Editor-in-Chief' },
+  { field: 'in_office_st', label: 'Secretary/Treasurer' },
+  { field: 'in_office_ih_eic', label: 'ImmunoHorizons Editor-in-Chief' }
+] %}
+{% set taxonomy_fields = [
+  { name: 'profile_type', label: 'Profile Type' }
+] %}
+{% set content_sections = [
+  { field: 'service_history', label: 'Service History' },
+  { field: 'awards_honors', label: 'Awards and Honors' },
+  { field: 'nobel_prize_type', label: 'Nobel Prize' },
+  { field: 'nobel_prize_science', label: 'Nobel Prize Science' },
+  { field: 'nobel_subheading', label: 'Nobel Prize Details' },
+  { field: 'lasker_type', label: 'Lasker Award' },
+  { field: 'lasker_subheading', label: 'Lasker Award Details' },
+  { field: 'lasker_cmr_subheading', label: 'Clinical Medical Research' },
+  { field: 'oral_history_subheading', label: 'Oral History' },
+  { field: 'oral_history_full_interview', label: 'Full Interview' },
+  { field: 'oral_history_transcript', label: 'Transcript' },
+  { field: 'oral_history_clips', label: 'Interview Clips' },
+  { field: 'presidents_address', label: "President's Address" },
+  { field: 'presidents_message', label: "President's Message" },
+  { field: 'institutional_bio_links', label: 'Additional Biography' }
+] %}
+{% include 'src/4-pages/single-kentico.twig' %}

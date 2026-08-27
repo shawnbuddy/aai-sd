@@ -1,0 +1,17 @@
+{% set detail_fields = [
+  { field: 'year', label: 'Year' },
+  { field: 'position', label: 'Position' },
+  { field: 'secondary_position', label: 'Additional Position' },
+  { field: 'secondary_year', label: 'Additional Year' },
+  { field: 'cycle', label: 'Cycle' },
+  { field: 'term', label: 'Term' }
+] %}
+{% set taxonomy_fields = [
+  { name: 'award_type', label: 'Award Type' }
+] %}
+{% set content_sections = [
+  { field: 'institution', label: 'Institution' },
+  { field: 'remarks', label: 'Remarks' },
+  { field: 'description', label: 'Description' }
+] %}
+{% include 'src/4-pages/single-kentico.twig' %}
